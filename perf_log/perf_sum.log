@@ -1,0 +1,1652 @@
+train_None_alexnet_1436	train_None_alexnet_1436	
+	957.91
+	869.19
+	Avg perf: 913.55
+train_None_resnet50_82	train_None_resnet50_82	
+	115.7
+	105.59
+	Avg perf: 110.64500000000001
+train_None_resnet50_86	train_None_resnet50_86	
+	112.7
+	111.1
+	Avg perf: 111.9
+train_None_deepspeech_192_rnn	
+	0.07422046
+train_None_deepspeech_4_rnn	train_None_deepspeech_4_rnn	
+	1.762854705882353
+	1.7650711764705882
+	Avg perf: 1.7639629411764706
+train_None_deepspeech_18_rnn	train_None_deepspeech_18_rnn	
+	0.46924111764705884
+	0.45941258823529413
+	Avg perf: 0.4643268529411765
+train_None_deepspeech_25_rnn	train_None_deepspeech_25_rnn	
+	0.3342401176470588
+	0.3321351764705882
+	Avg perf: 0.33318764705882353
+train_None_deepspeech_26_rnn	train_None_deepspeech_26_rnn	
+	0.3241010000000001
+	0.3222378235294117
+	Avg perf: 0.3231694117647059
+train_deepspeech_None_26_2GPUs_parameter_server_rnn	train_deepspeech_None_26_2GPUs_parameter_server_rnn	
+	0.4334078235294118
+	0.4345300588235294
+	Avg perf: 0.4339689411764706
+train_deepspeech_None_30_2GPUs_parameter_server_rnn	train_deepspeech_None_30_2GPUs_parameter_server_rnn	
+	0.3895298235294118
+	0.3940553529411765
+	Avg perf: 0.39179258823529417
+train_bert-base_None_18_2GPUs_parameter_server	train_bert-base_None_18_2GPUs_parameter_server	
+	1.344717558139535
+	1.355856162790698
+	Avg perf: 1.3502868604651166
+train_bert-base_None_21_2GPUs_parameter_server	train_bert-base_None_21_2GPUs_parameter_server	
+	1.1534741860465116
+	1.149770348837209
+	Avg perf: 1.1516222674418604
+train_None_bert-base_18	train_None_bert-base_18	
+	1.6069947126436783
+	1.5741199999999993
+	Avg perf: 1.5905573563218387
+train_None_bert-base_36	
+	1.8727832183908046
+train_None_bert-base_56	
+	1.2692920689655174
+train_bert-base_None_67_2GPUs_parameter_server	
+	0.9688268953488374
+train_deepspeech_None_256_2GPUs_parameter_server_rnn	
+	0.10470723333333333
+train_deepspeech_None_320_2GPUs_parameter_server_rnn	
+	0.07977035
+train_alexnet_None_1024_2GPUs_parameter_server	
+	5429.24
+train_alexnet_None_2048_2GPUs_parameter_server	
+	5773.79
+train_alexnet_None_3360_2GPUs_parameter_server	
+	3221.79
+train_alexnet_None_3362_2GPUs_parameter_server	
+	3208.87
+train_vgg16_None_128_2GPUs_parameter_server	
+	266.2
+train_vgg16_None_192_2GPUs_parameter_server	
+	248.83
+train_vgg16_None_224_2GPUs_parameter_server	
+	193.39
+train_resnet50_None_128_2GPUs_parameter_server	
+	473.75
+train_resnet50_None_160_2GPUs_parameter_server	
+	492.28
+train_resnet50_None_176_2GPUs_parameter_server	
+	487.27
+train_resnet50_None_184_2GPUs_parameter_server	
+	485.81
+train_inception3_None_128_2GPUs_parameter_server	
+	289.89
+train_inception3_None_144_2GPUs_parameter_server	
+	286.22
+train_inception3_None_152_2GPUs_parameter_server	
+	283.21
+train_inception3_None_156_2GPUs_parameter_server	
+	286.99
+train_inception3_None_158_2GPUs_parameter_server	
+	294.3
+train_None_alexnet_1024	
+	3134.83
+train_None_alexnet_3352	
+	1650.12
+train_None_vgg16_128	
+	155.03
+train_None_vgg16_192	
+	136.7
+train_None_vgg16_224	
+	104.8
+train_None_resnet50_128	
+	252.88
+train_None_resnet50_186	
+	247.63
+train_None_inception3_128	
+	151.35
+train_None_inception3_158	
+	151.45
+train_None_inception3_38	train_None_inception3_38	
+	60.74
+	59.96
+	Avg perf: 60.35
+train_None_inception3_39	train_None_inception3_39	
+	67.9
+	80.8
+	Avg perf: 74.35
+train_inception3_None_40_2GPUs_parameter_server	train_inception3_None_40_2GPUs_parameter_server	
+	126.51
+	124.09
+	Avg perf: 125.30000000000001
+train_alexnet_None_1516_2GPUs_parameter_server	train_alexnet_None_1516_2GPUs_parameter_server	
+	1654.99
+	1669.17
+	Avg perf: 1662.08
+train_vgg16_None_40_2GPUs_parameter_server	train_vgg16_None_40_2GPUs_parameter_server	
+	111.77
+	93.84
+	Avg perf: 102.805
+train_vgg16_None_42_2GPUs_parameter_server	train_vgg16_None_42_2GPUs_parameter_server	
+	127.2
+	127.22
+	Avg perf: 127.21000000000001
+train_resnet50_None_85_2GPUs_parameter_server	train_resnet50_None_85_2GPUs_parameter_server	
+	219.54
+	222.6
+	Avg perf: 221.07
+train_None_deepspeech_26_rnn	
+	0.7109925789473683
+train_deepspeech_None_30_2GPUs_parameter_server_rnn	
+	0.7076651052631578
+train_None_bert-base_18	train_None_bert-base_18	MPS
+	1.802453943820225
+	1.7886396629213486
+	Avg perf: 1.7955468033707866
+train_None_vgg16_35	
+	130.49
+train_None_resnet50_82	
+	243.31
+train_None_resnet50_82	train_None_resnet50_82	
+	115.99
+	107.73
+	Avg perf: 111.86
+train_resnet50_None_67_2GPUs_parameter_server	
+	426.85
+train_resnet50_None_67_2GPUs_parameter_server	train_resnet50_None_67_2GPUs_parameter_server	
+	219.58
+	220.61
+	Avg perf: 220.09500000000003
+train_None_inception3_40	
+	138.18
+train_None_inception3_40	train_None_inception3_40	
+	69.17
+	62.18
+	Avg perf: 65.675
+train_inception3_None_40_2GPUs_parameter_server	
+	242.46
+train_inception3_None_40_2GPUs_parameter_server	train_inception3_None_40_2GPUs_parameter_server	
+	123.88
+	125.05
+	Avg perf: 124.465
+train_None_alexnet_1403	
+	2888.47
+train_None_alexnet_1403	train_None_alexnet_1403	
+	1084.22
+	970.53
+	Avg perf: 1027.375
+train_alexnet_None_1519_2GPUs_parameter_server	
+	5300.23
+train_alexnet_None_1519_2GPUs_parameter_server	train_alexnet_None_1519_2GPUs_parameter_server	
+	1663.57
+	1815.83
+	Avg perf: 1739.6999999999998
+train_None_bert-base_18	
+	3.24859302247191
+train_None_bert-base_18	train_None_bert-base_18	
+	1.6142929775280899
+	1.6259035056179776
+	Avg perf: 1.6200982415730336
+train_bert-base_None_21_2GPUs_parameter_server	
+	1.689551568181818
+train_bert-base_None_21_2GPUs_parameter_server	train_bert-base_None_21_2GPUs_parameter_server	
+	1.2336548636363636
+	1.2521979772727274
+	Avg perf: 1.2429264204545456
+train_None_vgg16_35	
+	130.53
+train_None_vgg16_35	train_None_vgg16_35	
+	57.37
+	57.0
+	Avg perf: 57.185
+train_vgg16_None_17_2GPUs_parameter_server	
+	62.83
+train_None_vgg16_12_2GPUs_parameter_server	train_None_vgg16_12_2GPUs_parameter_server	
+	45.95
+	45.7
+	Avg perf: 45.825
+train_None_vgg16_38	train_None_vgg16_38	
+	58.48
+	57.24
+	Avg perf: 57.86
+train_None_vgg16_13_2GPUs_parameter_server	train_None_vgg16_13_2GPUs_parameter_server	
+	56.54
+	55.99
+	Avg perf: 56.265
+train_None_Tacotron_28_2GPUs_parameter_server	train_None_Tacotron_28_2GPUs_parameter_server	
+	5.04872
+	4.79746
+	Avg perf: 4.92309
+train_None_Tacotron_12	train_None_Tacotron_12	
+	4.4107400000000005
+	4.47978
+	Avg perf: 4.44526
+train_None_Tacotron_25_-1	train_None_Tacotron_25_-1	
+	4.6654599999999995
+	4.7244
+	Avg perf: 4.694929999999999
+train_None_Tacotron_27_-1	train_None_Tacotron_27_-1	
+	4.8957
+	4.28482
+	Avg perf: 4.59026
+train_None_Tacotron_48_-1_2GPUs_parameter_server	train_None_Tacotron_48_-1_2GPUs_parameter_server	
+	5.226940000000001
+	5.427760000000001
+	Avg perf: 5.327350000000001
+train_None_Tacotron_52_-1_2GPUs_parameter_server	train_None_Tacotron_52_-1_2GPUs_parameter_server	
+	5.205100000000001
+	5.299859999999999
+	Avg perf: 5.25248
+train_None_Tacotron_30_0.5_2GPUs_parameter_server	train_None_Tacotron_30_0.5_2GPUs_parameter_server	
+	5.049
+	4.7652600000000005
+	Avg perf: 4.90713
+train_None_bert-base_18_0.5	train_None_bert-base_18_0.5	
+	1.5622320112359553
+	1.5415766741573034
+	Avg perf: 1.5519043426966292
+train_None_bert-base_18_0.5_2GPUs_parameter_server	train_None_bert-base_18_0.5_2GPUs_parameter_server	
+	1.3454534886363636
+	1.346786284090909
+	Avg perf: 1.3461198863636363
+train_None_bert-base_20_0.5_2GPUs_parameter_server	train_None_bert-base_20_0.5_2GPUs_parameter_server	
+	1.2021766363636361
+	1.2052139772727273
+	Avg perf: 1.2036953068181817
+train_None_vgg16_28_0.5	train_None_vgg16_28_0.5	
+	58.95
+	61.13
+	Avg perf: 60.040000000000006
+train_None_vgg16_33_0.5	train_None_vgg16_33_0.5	
+	55.87
+	55.45
+	Avg perf: 55.66
+train_None_vgg16_35_0.5	train_None_vgg16_35_0.5	
+	58.07
+	57.65
+	Avg perf: 57.86
+train_None_vgg16_13_0.5_2GPUs_parameter_server	train_None_vgg16_13_0.5_2GPUs_parameter_server	
+	50.97
+	45.38
+	Avg perf: 48.175
+train_None_vgg16_15_0.5_2GPUs_parameter_server	train_None_vgg16_15_0.5_2GPUs_parameter_server	
+	56.58
+	58.8
+	Avg perf: 57.69
+train_None_Tacotron_30_0.5_2GPUs_parameter_server	train_None_Tacotron_30_0.5_2GPUs_parameter_server	
+	4.96058
+	4.909339999999999
+	Avg perf: 4.93496
+train_None_Tacotron_14_0.5	train_None_Tacotron_14_0.5	
+	4.31122
+	4.2786
+	Avg perf: 4.29491
+train_None_bert-base_17_-1	train_None_bert-base_17_-1	
+	1.5673244606741574
+	1.5861057415730337
+	Avg perf: 1.5767151011235956
+train_None_bert-base_20_-1_2GPUs_parameter_server	train_None_bert-base_20_-1_2GPUs_parameter_server	
+	1.184150534090909
+	1.189158340909091
+	Avg perf: 1.1866544375
+train_None_vgg16_30_-1	train_None_vgg16_30_-1	
+	59.93
+	60.74
+	Avg perf: 60.335
+train_None_vgg16_12_-1_2GPUs_parameter_server	train_None_vgg16_12_-1_2GPUs_parameter_server	
+	50.0
+	50.09
+	Avg perf: 50.045
+train_None_vgg16_15_-1_2GPUs_parameter_server	train_None_vgg16_15_-1_2GPUs_parameter_server	
+	59.77
+	59.49
+	Avg perf: 59.63
+train_None_nmt_128_-1	
+	1.4799511578947369
+train_None_nmt_128_-1	
+	1.490264894736842
+train_None_nmt_128_-1	
+	1.4795166842105263
+train_None_nmt_128_-1	
+	1.473654157894737
+train_None_nmt_192_-1	
+	1.0252718421052631
+train_None_nmt_24_-1	train_None_nmt_24_-1	
+	1.9994115789473685
+	1.9844999473684208
+	Avg perf: 1.9919557631578946
+train_None_nmt_50_-1	train_None_nmt_50_-1	
+	1.390174947368421
+	1.3814321052631577
+	Avg perf: 1.3858035263157893
+train_None_nmt_56_-1	train_None_nmt_56_-1	
+	1.373551052631579
+	1.379588
+	Avg perf: 1.3765695263157895
+train_None_nmt_59_-1	train_None_nmt_59_-1	
+	1.2926511052631577
+	1.3007605263157895
+	Avg perf: 1.2967058157894735
+train_None_nmt_76_-1_2GPUs_parameter_server	train_None_nmt_76_-1_2GPUs_parameter_server	
+	1.1821273157894738
+	1.1711942105263158
+	Avg perf: 1.1766607631578947
+train_None_nmt_102_-1_2GPUs_parameter_server	train_None_nmt_102_-1_2GPUs_parameter_server	
+	1.0345302631578945
+	1.0425682105263159
+	Avg perf: 1.0385492368421052
+train_None_nmt_115_-1_2GPUs_parameter_server	train_None_nmt_115_-1_2GPUs_parameter_server	
+	0.9948509473684212
+	1.0057398421052632
+	Avg perf: 1.0002953947368423
+train_None_nmt_121_-1_2GPUs_parameter_server	train_None_nmt_121_-1_2GPUs_parameter_server	
+	0.9598718421052633
+	0.9576642105263159
+	Avg perf: 0.9587680263157896
+train_None_nmt_124_-1_2GPUs_parameter_server	train_None_nmt_124_-1_2GPUs_parameter_server	
+	1.0344448421052632
+	1.0156736315789472
+	Avg perf: 1.0250592368421052
+train_None_nmt_52_0.5	train_None_nmt_52_0.5	
+	1.4560473684210526
+	1.445361052631579
+	Avg perf: 1.450704210526316
+train_None_nmt_57_0.5	train_None_nmt_57_0.5	
+	1.414096842105263
+	1.4051006842105265
+	Avg perf: 1.4095987631578948
+train_None_nmt_59_0.5	train_None_nmt_59_0.5	
+	1.279945894736842
+	1.2657307894736842
+	Avg perf: 1.2728383421052631
+train_None_nmt_110_0.5_2GPUs_parameter_server	train_None_nmt_110_0.5_2GPUs_parameter_server	
+	1.011
+	1.0378327368421054
+	Avg perf: 1.0244163684210528
+train_None_nmt_115_0.5_2GPUs_parameter_server	train_None_nmt_115_0.5_2GPUs_parameter_server	
+	0.9940938421052631
+	1.0125266315789474
+	Avg perf: 1.0033102368421052
+train_None_nmt_118_0.5_2GPUs_parameter_server	train_None_nmt_118_0.5_2GPUs_parameter_server	
+	0.9416426315789475
+	1.0018107368421052
+	Avg perf: 0.9717266842105263
+train_None_bert-large_4_-1	
+	2.948826685393258
+train_None_bert-large_8_-1	
+	1.93184097752809
+train_None_Tacotron_24_0.5	
+	4.36876
+train_None_Tacotron_31_0.5	
+	3.89182
+##############  before allow_growth for tacotron, deepspeech, nmt is always on, for two jobs is always on ###########################
+train_None_Tacotron_27_-1	
+	4.57358
+train_None_vgg16_43_-1	
+	141.56
+train_None_vgg16_23_-1_2GPUs_parameter_server	
+	89.11
+train_None_deepspeech_33_-1_rnn	
+	0.5592603157894735
+train_None_deepspeech_48_-1_2GPUs_parameter_server_rnn	
+	0.5256812631578947
+train_None_bert-base_20_-1	
+	2.8271401123595505
+train_None_bert-base_22_-1_2GPUs_parameter_server	
+	1.6774424545454545
+train_None_Tacotron_27_-1	
+	4.43278
+train_None_nmt_59_-1	
+	2.405991894736842
+train_None_vgg16_43_-1	
+	141.41
+train_None_vgg16_23_-1_2GPUs_parameter_server	
+	84.69
+train_None_bert-base_20_-1	
+	2.824663359550562
+train_None_bert-base_22_-1_2GPUs_parameter_server	
+	1.667937034090909
+train_None_deepspeech_33_-1_rnn	
+	0.5754927894736841
+train_None_deepspeech_48_-1_2GPUs_parameter_server_rnn	
+	0.5204574210526316
+train_None_nmt_59_-1	
+	2.4156104210526315
+train_None_nmt_124_-1_2GPUs_parameter_server	
+	1.9745514736842105
+train_None_Tacotron_27_-1	
+	4.50028
+train_None_Tacotron_54_-1_2GPUs_parameter_server	
+	5.27394
+train_None_vgg16_48_0.5	
+	148.01
+train_None_vgg16_96_0.5	
+	147.15
+train_None_vgg16_109_0.5	
+	117.39
+train_None_vgg16_12_-1_ag	train_None_Tacotron_12_-1_ag	
+	114.5
+	3.8432999999999997
+train_None_inception3_64_0.5	
+	147.24
+train_None_inception3_96_0.5	
+	131.49
+train_None_bert-base_22_0.5	
+	2.682732471910112
+train_None_bert-base_24_0.5	
+	2.5349399775280896
+train_None_Tacotron_27_-1	
+	5.142
+train_None_Tacotron_54_-1_2GPUs_parameter_server	
+	5.118
+train_None_Tacotron_27_-1_ag	train_None_Tacotron_27_-1_ag	
+	5.728
+	5.174
+	Avg perf: 5.4510000000000005
+train_None_deepspeech_4_-1_gru	
+	0.4307244736842106
+train_None_Tacotron_48_-1	
+	5.048
+train_None_Tacotron_56_-1	
+	5.251
+train_None_Tacotron_60_-1	
+	5.069
+train_None_deepspeech_128_-1_rnn	
+	0.14583089090909093
+train_None_deepspeech_192_-1_rnn	
+	0.09585234285714286
+train_None_bert-large_8_-1	
+	1.9407992808988763
+train_None_bert-large_8_-1_2GPUs_parameter_server	
+	0.7248185113636363
+train_None_bert-base_64_-1	
+	0.0
+train_None_bert-base_48_-1	
+	1.3941290561797752
+train_None_bert-base_48_-1_2GPUs_parameter_server	
+	1.2355010454545452
+train_None_bert-base_32_-1_2GPUs_parameter_server	
+	1.6186847045454547
+train_None_bert-base_32_-1	
+	1.9999266629213486
+train_None_vgg16_64_-1_2GPUs_replicated	
+	264.77
+train_None_resnet50_64_-1_2GPUs_replicated	
+	408.43
+train_None_inception3_64_-1_2GPUs_replicated	
+	205.6
+train_None_nmt_128_-1_2GPUs_replicated	
+	0.6197864736842105
+train_None_nmt_128_-1	
+	1.480080947368421
+train_None_nmt_128_-1	
+	1.503869842105263
+train_None_nmt_128_-1	
+	1.5448073157894737
+train_None_resnet50_64_-1	
+	180.81
+train_None_resnet50_64_-1	
+	194.26
+## using GPU#0
+train_None_resnet50_64_-1	
+	237.57
+train_None_vgg16_64_-1	
+	145.66
+train_None_inception3_64_-1	
+	131.23
+train_None_inception3_64_-1	
+	146.98
+## using GPU#1
+train_None_inception3_64_-1	
+	107.88
+train_None_resnet50_64_-1	
+	240.42
+train_None_inception3_64_-1	
+	130.29
+train_None_inception3_64_-1	
+	90.63
+
+########  SharedMasterSessionTest (aligned_scheduling=True)  ############
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	165.95
+	166.04
+	Avg perf: 165.995
+MaxInUse: 14154530816 [13498 MB] Allocation range diff: 14363437568 [13698 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	167.22
+	167.5
+	Avg perf: 167.36
+MaxInUse: 16794046976 [16016 MB] Allocation range diff: 19244048128 [18352 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	165.36
+	165.87
+	Avg perf: 165.615
+MaxInUse: 16936352000 [16151 MB] Allocation range diff: 19410278912 [18511 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	169.62
+	169.19
+	Avg perf: 169.405
+MaxInUse: 17148000512 [16353 MB] Allocation range diff: 17154528768 [16359 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	169.49
+	169.9
+	Avg perf: 169.695
+MaxInUse: 16770374656 [15993 MB] Allocation range diff: 16791811584 [16013 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	169.12
+	169.86
+	Avg perf: 169.49
+MaxInUse: 16992199680 [16205 MB] Allocation range diff: 18033875712 [17198 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	170.36
+	169.94
+	Avg perf: 170.15
+MaxInUse: 16912688896 [16129 MB] Allocation range diff: 17963994112 [17131 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	169.48
+	169.39
+	Avg perf: 169.435
+MaxInUse: 17073627648 [16282 MB] Allocation range diff: 19457837056 [18556 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	169.32
+	169.18
+	Avg perf: 169.25
+MaxInUse: 16495299328 [15731 MB] Allocation range diff: 16697145856 [15923 MB]
+train_None_resnet50_64_-1	train_None_resnet50_64_-1	
+	168.82
+	168.87
+	Avg perf: 168.845
+MaxInUse: 16979745024 [16193 MB] Allocation range diff: 16992679168 [16205 MB]
+MaxInUse: 17148000512 [16353 MB] Allocation range diff: 19457837056 [18556 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2116.01
+	2115.52
+	Avg perf: 2115.7650000000003
+MaxInUse: 9651610624 [9204 MB] Allocation range diff: 11635955200 [11096 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2105.64
+	2103.54
+	Avg perf: 2104.59
+MaxInUse: 9780365312 [9327 MB] Allocation range diff: 10825221888 [10323 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2119.09
+	2114.75
+	Avg perf: 2116.92
+MaxInUse: 9723065856 [9272 MB] Allocation range diff: 10354605824 [9874 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2118.75
+	2108.3
+	Avg perf: 2113.525
+MaxInUse: 6475568128 [6175 MB] Allocation range diff: 7895090688 [7529 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2125.45
+	2115.03
+	Avg perf: 2120.24
+MaxInUse: 6518694656 [6216 MB] Allocation range diff: 7563460352 [7213 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2116.08
+	2119.96
+	Avg perf: 2118.02
+MaxInUse: 6453520384 [6154 MB] Allocation range diff: 7578901248 [7227 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2110.69
+	2122.71
+	Avg perf: 2116.7
+MaxInUse: 9764202496 [9311 MB] Allocation range diff: 10819168000 [10317 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2121.02
+	2111.27
+	Avg perf: 2116.145
+MaxInUse: 6420391424 [6122 MB] Allocation range diff: 7564244480 [7213 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2119.3
+	2107.13
+	Avg perf: 2113.215
+MaxInUse: 9769497088 [9316 MB] Allocation range diff: 11633995264 [11095 MB]
+train_None_alexnet_512_-1	train_None_alexnet_512_-1	
+	2122.4
+	2117.53
+	Avg perf: 2119.965
+MaxInUse: 6542586112 [6239 MB] Allocation range diff: 7563372288 [7212 MB]
+MaxInUse: 9780365312 [9327 MB] Allocation range diff: 11635955200 [11096 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	109.76
+	109.87
+	Avg perf: 109.815
+MaxInUse: 17702993152 [16882 MB] Allocation range diff: 17763412992 [16940 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.98
+	111.25
+	Avg perf: 111.11500000000001
+MaxInUse: 17058688000 [16268 MB] Allocation range diff: 17166304768 [16371 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.85
+	111.71
+	Avg perf: 111.28
+MaxInUse: 12941615616 [12342 MB] Allocation range diff: 13171758336 [12561 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.44
+	110.88
+	Avg perf: 110.66
+MaxInUse: 17607195904 [16791 MB] Allocation range diff: 17707819776 [16887 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.42
+	110.41
+	Avg perf: 110.41499999999999
+MaxInUse: 17754414848 [16931 MB] Allocation range diff: 17831774208 [17005 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.9
+	110.48
+	Avg perf: 110.69
+MaxInUse: 17892149504 [17063 MB] Allocation range diff: 18129228800 [17289 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	111.34
+	110.99
+	Avg perf: 111.16499999999999
+MaxInUse: 12896446464 [12299 MB] Allocation range diff: 13151142656 [12541 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.9
+	111.56
+	Avg perf: 111.23
+MaxInUse: 13038571776 [12434 MB] Allocation range diff: 13148542464 [12539 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	111.01
+	111.62
+	Avg perf: 111.315
+MaxInUse: 12971016448 [12370 MB] Allocation range diff: 13106701312 [12499 MB]
+train_None_inception3_64_-1	train_None_inception3_64_-1	
+	110.53
+	109.96
+	Avg perf: 110.245
+MaxInUse: 16752525824 [15976 MB] Allocation range diff: 16971206656 [16185 MB]
+MaxInUse: 17892149504 [17063 MB] Allocation range diff: 18129228800 [17289 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.84
+	110.49
+	Avg perf: 110.66499999999999
+MaxInUse: 16093929216 [15348 MB] Allocation range diff: 19452307968 [18551 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.28
+	109.93
+	Avg perf: 110.105
+MaxInUse: 17038634752 [16249 MB] Allocation range diff: 19554363904 [18648 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.41
+	110.61
+	Avg perf: 110.50999999999999
+MaxInUse: 16949636864 [16164 MB] Allocation range diff: 18271424256 [17424 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.65
+	110.65
+	Avg perf: 110.65
+MaxInUse: 16043767296 [15300 MB] Allocation range diff: 17774988800 [16951 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.21
+	110.93
+	Avg perf: 110.57
+MaxInUse: 16949636864 [16164 MB] Allocation range diff: 19332628992 [18437 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.44
+	110.23
+	Avg perf: 110.33500000000001
+MaxInUse: 16972705536 [16186 MB] Allocation range diff: 18288201472 [17440 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.55
+	110.23
+	Avg perf: 110.39
+MaxInUse: 16076882944 [15332 MB] Allocation range diff: 17214787328 [16417 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.73
+	110.22
+	Avg perf: 110.475
+MaxInUse: 11975820800 [11421 MB] Allocation range diff: 12778003968 [12186 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.51
+	110.17
+	Avg perf: 110.34
+MaxInUse: 13766520832 [13128 MB] Allocation range diff: 14438222592 [13769 MB]
+train_None_vgg16_64_-1	train_None_vgg16_64_-1	
+	110.58
+	110.53
+	Avg perf: 110.555
+MaxInUse: 16972705536 [16186 MB] Allocation range diff: 18493722368 [17636 MB]
+MaxInUse: 17038634752 [16249 MB] Allocation range diff: 19554363904 [18648 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.61
+	54.45
+	Avg perf: 54.53
+MaxInUse: 28946677504 [27605 MB] Allocation range diff: 31926291456 [30447 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.84
+	54.45
+	Avg perf: 54.645
+MaxInUse: 29295011840 [27937 MB] Allocation range diff: 29916061184 [28530 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.42
+	54.76
+	Avg perf: 54.59
+MaxInUse: 28803661568 [27469 MB] Allocation range diff: 29668872448 [28294 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.71
+	54.47
+	Avg perf: 54.59
+MaxInUse: 28901028096 [27562 MB] Allocation range diff: 29859201024 [28475 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.62
+	54.87
+	Avg perf: 54.745
+MaxInUse: 29427141120 [28063 MB] Allocation range diff: 30056866976 [28664 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.53
+	54.5
+	Avg perf: 54.515
+MaxInUse: 29476256256 [28110 MB] Allocation range diff: 30103536384 [28708 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.91
+	54.57
+	Avg perf: 54.739999999999995
+MaxInUse: 23684818688 [22587 MB] Allocation range diff: 23854618016 [22749 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.46
+	54.54
+	Avg perf: 54.5
+MaxInUse: 29198956288 [27846 MB] Allocation range diff: 30850650528 [29421 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.42
+	54.81
+	Avg perf: 54.615
+MaxInUse: 28918876672 [27579 MB] Allocation range diff: 29772904704 [28393 MB]
+train_None_inception4_64_-1	train_None_inception4_64_-1	
+	54.46
+	54.89
+	Avg perf: 54.675
+MaxInUse: 26935822336 [25688 MB] Allocation range diff: 29000489376 [27657 MB]
+MaxInUse: 29476256256 [28110 MB] Allocation range diff: 31926291456 [30447 MB]
+MaxInUse: 23684818688 [22587 MB] Allocation range diff: 23854618016 [22749 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.41
+	69.22
+	Avg perf: 69.315
+MaxInUse: 22981853440 [21917 MB] Allocation range diff: 23289043968 [22210 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	70.16
+	69.05
+	Avg perf: 69.60499999999999
+MaxInUse: 23719374592 [22620 MB] Allocation range diff: 24507660544 [23372 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.45
+	68.71
+	Avg perf: 69.08
+MaxInUse: 29378947584 [28017 MB] Allocation range diff: 29716803488 [28340 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.43
+	68.74
+	Avg perf: 69.08500000000001
+MaxInUse: 29550061568 [28181 MB] Allocation range diff: 30166718112 [28769 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.08
+	69.15
+	Avg perf: 69.11500000000001
+MaxInUse: 23359552512 [22277 MB] Allocation range diff: 23552086784 [22461 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.32
+	69.61
+	Avg perf: 69.465
+MaxInUse: 23652893696 [22557 MB] Allocation range diff: 23744656384 [22644 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.08
+	69.18
+	Avg perf: 69.13
+MaxInUse: 29292483328 [27935 MB] Allocation range diff: 31733215232 [30263 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	68.78
+	70.0
+	Avg perf: 69.39
+MaxInUse: 29376408320 [28015 MB] Allocation range diff: 29727784608 [28350 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.02
+	69.41
+	Avg perf: 69.215
+MaxInUse: 29610813952 [28239 MB] Allocation range diff: 29986107552 [28596 MB]
+train_None_resnet152_64_-1	train_None_resnet152_64_-1	
+	69.62
+	69.26
+	Avg perf: 69.44
+MaxInUse: 28167481088 [26862 MB] Allocation range diff: 30842019840 [29413 MB]
+MaxInUse: 29610813952 [28239 MB] Allocation range diff: 31733215232 [30263 MB]
+MaxInUse: 22981853440 [21917 MB] Allocation range diff: 23289043968 [22210 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.5205605510204083
+	1.5682390816326528
+	Avg perf: 1.5443998163265307
+MaxInUse: 17972553728 [17139 MB] Allocation range diff: 18046257664 [17210 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.5186905204081635
+	1.5605944897959183
+	Avg perf: 1.5396425051020408
+MaxInUse: 14196434944 [13538 MB] Allocation range diff: 14559225600 [13884 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.611207346938775
+	1.571474826530612
+	Avg perf: 1.5913410867346935
+MaxInUse: 20160744192 [19226 MB] Allocation range diff: 20223681280 [19286 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.515117663265306
+	1.576065612244898
+	Avg perf: 1.545591637755102
+MaxInUse: 19009041664 [18128 MB] Allocation range diff: 19014864640 [18133 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.5131740510204081
+	1.5688638775510202
+	Avg perf: 1.5410189642857142
+MaxInUse: 20064400128 [19134 MB] Allocation range diff: 20128294656 [19195 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.5736108163265303
+	1.5222454591836734
+	Avg perf: 1.5479281377551017
+MaxInUse: 20118680576 [19186 MB] Allocation range diff: 20253153536 [19314 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.5501558163265305
+	1.496869214285714
+	Avg perf: 1.5235125153061224
+MaxInUse: 20034746880 [19106 MB] Allocation range diff: 20118476032 [19186 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.586996530612245
+	1.5292197142857145
+	Avg perf: 1.5581081224489797
+MaxInUse: 17173465344 [16377 MB] Allocation range diff: 17349346304 [16545 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.6016270408163262
+	1.5611717040816329
+	Avg perf: 1.5813993724489794
+MaxInUse: 19528118272 [18623 MB] Allocation range diff: 19670190592 [18758 MB]
+train_None_bert-base_32_-1	train_None_bert-base_32_-1	
+	1.6048563265306122
+	1.5486578877551018
+	Avg perf: 1.576757107142857
+MaxInUse: 15101586944 [14401 MB] Allocation range diff: 15201416192 [14497 MB]
+MaxInUse: 20160744192 [19226 MB] Allocation range diff: 20253153536 [19314 MB]
+MaxInUse: 14196434944 [13538 MB] Allocation range diff: 14559225600 [13884 MB]
+
+########  SharedMasterSessionTest (aligned_scheduling=False)  ############
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	157.81
+	168.09
+	Avg perf: 162.95
+MaxInUse: 14269437696 [13608 MB] Allocation range diff: 15828669696 [15095 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	164.21
+	168.68
+	Avg perf: 166.445
+MaxInUse: 14284838400 [13623 MB] Allocation range diff: 15006531072 [14311 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	152.3
+	165.39
+	Avg perf: 158.845
+MaxInUse: 14181518848 [13524 MB] Allocation range diff: 15349861120 [14638 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	154.07
+	167.61
+	Avg perf: 160.84
+MaxInUse: 14541829888 [13868 MB] Allocation range diff: 15715469568 [14987 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	155.62
+	166.18
+	Avg perf: 160.9
+MaxInUse: 14325666048 [13662 MB] Allocation range diff: 15943494656 [15204 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	153.27
+	165.7
+	Avg perf: 159.485
+MaxInUse: 14856176640 [14167 MB] Allocation range diff: 15494728960 [14776 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	157.65
+	167.2
+	Avg perf: 162.425
+MaxInUse: 14777793024 [14093 MB] Allocation range diff: 15708454400 [14980 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	156.19
+	164.65
+	Avg perf: 160.42000000000002
+MaxInUse: 14007712256 [13358 MB] Allocation range diff: 15166297344 [14463 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	154.27
+	169.94
+	Avg perf: 162.10500000000002
+MaxInUse: 14342773504 [13678 MB] Allocation range diff: 15494186240 [14776 MB]
+train_None_resnet50_64_-1	train_None_vgg16_64_-1	
+	157.33
+	169.56
+	Avg perf: 163.445
+MaxInUse: 14680804864 [14000 MB] Allocation range diff: 16146592768 [15398 MB]
+MaxInUse: 14856176640 [14167 MB] Allocation range diff: 16146592768 [15398 MB]
+MaxInUse: 14007712256 [13358 MB] Allocation range diff: 15006531072 [14311 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	159.13
+	143.06
+	Avg perf: 151.095
+MaxInUse: 15634073856 [14909 MB] Allocation range diff: 15708523264 [14980 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	159.74
+	141.87
+	Avg perf: 150.805
+MaxInUse: 15135831808 [14434 MB] Allocation range diff: 15344685056 [14633 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	158.25
+	142.2
+	Avg perf: 150.225
+MaxInUse: 15473647872 [14756 MB] Allocation range diff: 15777551872 [15046 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	161.49
+	137.72
+	Avg perf: 149.60500000000002
+MaxInUse: 14753157376 [14069 MB] Allocation range diff: 15399248640 [14685 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	159.75
+	137.48
+	Avg perf: 148.615
+MaxInUse: 14304896512 [13642 MB] Allocation range diff: 16312376576 [15556 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	162.95
+	139.83
+	Avg perf: 151.39
+MaxInUse: 15360191488 [14648 MB] Allocation range diff: 15442191872 [14726 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	161.87
+	141.52
+	Avg perf: 151.695
+MaxInUse: 15288663296 [14580 MB] Allocation range diff: 15616190208 [14892 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	158.23
+	142.05
+	Avg perf: 150.14
+MaxInUse: 14670387712 [13990 MB] Allocation range diff: 15309107968 [14599 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	159.02
+	142.35
+	Avg perf: 150.685
+MaxInUse: 14718253312 [14036 MB] Allocation range diff: 16020687872 [15278 MB]
+train_None_resnet50_64_-1	train_None_inception3_64_-1	
+	158.09
+	139.0
+	Avg perf: 148.54500000000002
+MaxInUse: 14642200832 [13963 MB] Allocation range diff: 15120271616 [14419 MB]
+MaxInUse: 15634073856 [14909 MB] Allocation range diff: 16312376576 [15556 MB]
+MaxInUse: 14304896512 [13642 MB] Allocation range diff: 15120271616 [14419 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	261.98
+	2817.15
+	Avg perf: 1539.565
+MaxInUse: 12320718336 [11749 MB] Allocation range diff: 12339932160 [11768 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	261.25
+	2841.5
+	Avg perf: 1551.375
+MaxInUse: 12154125824 [11591 MB] Allocation range diff: 13066414592 [12461 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	259.02
+	2858.68
+	Avg perf: 1558.85
+MaxInUse: 11905049856 [11353 MB] Allocation range diff: 13169959680 [12559 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	261.73
+	2803.12
+	Avg perf: 1532.425
+MaxInUse: 11976432640 [11421 MB] Allocation range diff: 12367709696 [11794 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	265.22
+	2826.53
+	Avg perf: 1545.875
+MaxInUse: 12022811392 [11465 MB] Allocation range diff: 12406236416 [11831 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	265.76
+	2875.9
+	Avg perf: 1570.83
+MaxInUse: 12245530880 [11678 MB] Allocation range diff: 12447990272 [11871 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	252.47
+	2791.78
+	Avg perf: 1522.125
+MaxInUse: 12324025856 [11753 MB] Allocation range diff: 12685486848 [12097 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	251.52
+	2776.92
+	Avg perf: 1514.22
+MaxInUse: 12352014336 [11779 MB] Allocation range diff: 12490175232 [11911 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	253.12
+	2769.21
+	Avg perf: 1511.165
+MaxInUse: 12417028096 [11841 MB] Allocation range diff: 13640034304 [13008 MB]
+train_None_resnet50_64_-1	train_None_alexnet_512_-1	
+	258.76
+	2834.93
+	Avg perf: 1546.8449999999998
+MaxInUse: 12398354688 [11823 MB] Allocation range diff: 13888892928 [13245 MB]
+MaxInUse: 12417028096 [11841 MB] Allocation range diff: 13888892928 [13245 MB]
+MaxInUse: 11905049856 [11353 MB] Allocation range diff: 12339932160 [11768 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	127.31
+	90.02
+	Avg perf: 108.66499999999999
+MaxInUse: 21072414720 [20096 MB] Allocation range diff: 21407880704 [20416 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	130.96
+	90.81
+	Avg perf: 110.885
+MaxInUse: 20483622400 [19534 MB] Allocation range diff: 23707023872 [22608 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	130.33
+	91.04
+	Avg perf: 110.685
+MaxInUse: 21945861632 [20929 MB] Allocation range diff: 23636706048 [22541 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	127.51
+	90.38
+	Avg perf: 108.945
+MaxInUse: 21498537984 [20502 MB] Allocation range diff: 22253918464 [21222 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	122.54
+	87.89
+	Avg perf: 105.215
+MaxInUse: 21760798720 [20752 MB] Allocation range diff: 25269109760 [24098 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	128.11
+	90.25
+	Avg perf: 109.18
+MaxInUse: 20566187520 [19613 MB] Allocation range diff: 21812249600 [20801 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	128.76
+	87.86
+	Avg perf: 108.31
+MaxInUse: 21566668544 [20567 MB] Allocation range diff: 21880711936 [20867 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	127.97
+	90.42
+	Avg perf: 109.195
+MaxInUse: 22275471616 [21243 MB] Allocation range diff: 23382656000 [22299 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	129.82
+	90.88
+	Avg perf: 110.35
+MaxInUse: 20938622720 [19968 MB] Allocation range diff: 24402605056 [23272 MB]
+train_None_resnet50_64_-1	train_None_inception4_64_-1	
+	128.26
+	90.57
+	Avg perf: 109.41499999999999
+MaxInUse: 20259739648 [19321 MB] Allocation range diff: 21855520000 [20843 MB]
+MaxInUse: 22275471616 [21243 MB] Allocation range diff: 25269109760 [24098 MB]
+MaxInUse: 20259739648 [19321 MB] Allocation range diff: 21407880704 [20416 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	157.56
+	111.77
+	Avg perf: 134.665
+MaxInUse: 17537202944 [16724 MB] Allocation range diff: 17654656512 [16836 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	153.12
+	110.03
+	Avg perf: 131.575
+MaxInUse: 17407536896 [16601 MB] Allocation range diff: 17460573952 [16651 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	159.56
+	112.67
+	Avg perf: 136.115
+MaxInUse: 17999054592 [17165 MB] Allocation range diff: 18098680576 [17260 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	160.17
+	112.44
+	Avg perf: 136.305
+MaxInUse: 17545592576 [16732 MB] Allocation range diff: 17680743680 [16861 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	151.37
+	110.71
+	Avg perf: 131.04
+MaxInUse: 17720382720 [16899 MB] Allocation range diff: 17816134912 [16990 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	149.03
+	108.45
+	Avg perf: 128.74
+MaxInUse: 17558769664 [16745 MB] Allocation range diff: 17700310784 [16880 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	153.7
+	110.47
+	Avg perf: 132.08499999999998
+MaxInUse: 17533885184 [16721 MB] Allocation range diff: 17675892992 [16857 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	176.37
+	121.23
+	Avg perf: 148.8
+MaxInUse: 17570835712 [16756 MB] Allocation range diff: 17658945536 [16840 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	158.72
+	112.03
+	Avg perf: 135.375
+MaxInUse: 17725968896 [16904 MB] Allocation range diff: 17772071680 [16948 MB]
+train_None_resnet50_64_-1	train_None_resnet152_64_-1	
+	156.48
+	111.15
+	Avg perf: 133.815
+MaxInUse: 17647413504 [16829 MB] Allocation range diff: 17725841920 [16904 MB]
+MaxInUse: 17999054592 [17165 MB] Allocation range diff: 18098680576 [17260 MB]
+MaxInUse: 17407536896 [16601 MB] Allocation range diff: 17460573952 [16651 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	164.79
+	159.52
+	Avg perf: 162.155
+MaxInUse: 14718011904 [14036 MB] Allocation range diff: 15814871040 [15082 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	167.51
+	163.9
+	Avg perf: 165.70499999999998
+MaxInUse: 15338394368 [14627 MB] Allocation range diff: 16851556352 [16070 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	165.41
+	160.99
+	Avg perf: 163.2
+MaxInUse: 15098874368 [14399 MB] Allocation range diff: 16633061376 [15862 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	163.07
+	157.67
+	Avg perf: 160.37
+MaxInUse: 14851699456 [14163 MB] Allocation range diff: 15914288128 [15177 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	165.35
+	166.29
+	Avg perf: 165.82
+MaxInUse: 15164166144 [14461 MB] Allocation range diff: 16191049216 [15440 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	162.48
+	158.64
+	Avg perf: 160.56
+MaxInUse: 15343557376 [14632 MB] Allocation range diff: 16453121536 [15690 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	159.6
+	150.83
+	Avg perf: 155.215
+MaxInUse: 15103251456 [14403 MB] Allocation range diff: 16206207744 [15455 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	168.29
+	170.8
+	Avg perf: 169.54500000000002
+MaxInUse: 15479430656 [14762 MB] Allocation range diff: 16832831232 [16053 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	162.45
+	173.96
+	Avg perf: 168.20499999999998
+MaxInUse: 15149671680 [14447 MB] Allocation range diff: 16396023296 [15636 MB]
+train_None_vgg16_64_-1	train_None_inception3_64_-1	
+	164.39
+	157.64
+	Avg perf: 161.015
+MaxInUse: 15198720768 [14494 MB] Allocation range diff: 15998078464 [15256 MB]
+MaxInUse: 15479430656 [14762 MB] Allocation range diff: 16851556352 [16070 MB]
+MaxInUse: 14718011904 [14036 MB] Allocation range diff: 15814871040 [15082 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	160.67
+	1254.14
+	Avg perf: 707.4050000000001
+MaxInUse: 12880337920 [12283 MB] Allocation range diff: 15151183360 [14449 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	160.67
+	1255.35
+	Avg perf: 708.01
+MaxInUse: 13051390976 [12446 MB] Allocation range diff: 13346898176 [12728 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	161.54
+	1253.43
+	Avg perf: 707.485
+MaxInUse: 12466745344 [11889 MB] Allocation range diff: 12920158208 [12321 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	161.01
+	1244.15
+	Avg perf: 702.58
+MaxInUse: 12883100672 [12286 MB] Allocation range diff: 14051063296 [13400 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	161.17
+	1245.68
+	Avg perf: 703.4250000000001
+MaxInUse: 12397690112 [11823 MB] Allocation range diff: 13629216256 [12997 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	161.47
+	1252.85
+	Avg perf: 707.16
+MaxInUse: 12452700160 [11875 MB] Allocation range diff: 14565442560 [13890 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	161.11
+	1245.26
+	Avg perf: 703.185
+MaxInUse: 12575089152 [11992 MB] Allocation range diff: 14405825792 [13738 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	160.95
+	1243.88
+	Avg perf: 702.4150000000001
+MaxInUse: 12824919296 [12230 MB] Allocation range diff: 14558451200 [13884 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	164.45
+	1279.73
+	Avg perf: 722.09
+MaxInUse: 12808756992 [12215 MB] Allocation range diff: 13540197376 [12912 MB]
+train_None_vgg16_64_-1	train_None_alexnet_512_-1	
+	160.44
+	1252.37
+	Avg perf: 706.405
+MaxInUse: 11836733952 [11288 MB] Allocation range diff: 13081303040 [12475 MB]
+MaxInUse: 13051390976 [12446 MB] Allocation range diff: 15151183360 [14449 MB]
+MaxInUse: 11836733952 [11288 MB] Allocation range diff: 12920158208 [12321 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	155.72
+	107.63
+	Avg perf: 131.675
+MaxInUse: 20705328640 [19746 MB] Allocation range diff: 24258649600 [23134 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	157.34
+	107.97
+	Avg perf: 132.655
+MaxInUse: 20463844352 [19515 MB] Allocation range diff: 21758998272 [20750 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	153.6
+	105.8
+	Avg perf: 129.7
+MaxInUse: 20898170880 [19930 MB] Allocation range diff: 23942547200 [22833 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	153.54
+	106.82
+	Avg perf: 130.18
+MaxInUse: 20948554752 [19978 MB] Allocation range diff: 20983382272 [20011 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	156.07
+	108.28
+	Avg perf: 132.175
+MaxInUse: 20964514560 [19993 MB] Allocation range diff: 21204606976 [20222 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	156.71
+	107.88
+	Avg perf: 132.29500000000002
+MaxInUse: 21419757568 [20427 MB] Allocation range diff: 21536635648 [20538 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	159.32
+	107.17
+	Avg perf: 133.245
+MaxInUse: 21045968128 [20070 MB] Allocation range diff: 21134645504 [20155 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	157.82
+	106.69
+	Avg perf: 132.255
+MaxInUse: 20534508800 [19583 MB] Allocation range diff: 21671566080 [20667 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	156.24
+	107.97
+	Avg perf: 132.10500000000002
+MaxInUse: 21103171328 [20125 MB] Allocation range diff: 21915879168 [20900 MB]
+train_None_vgg16_64_-1	train_None_inception4_64_-1	
+	151.89
+	106.71
+	Avg perf: 129.29999999999998
+MaxInUse: 21307754752 [20320 MB] Allocation range diff: 21413881600 [20421 MB]
+MaxInUse: 21419757568 [20427 MB] Allocation range diff: 24258649600 [23134 MB]
+MaxInUse: 20463844352 [19515 MB] Allocation range diff: 20983382272 [20011 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	167.86
+	136.62
+	Avg perf: 152.24
+MaxInUse: 20865259776 [19898 MB] Allocation range diff: 22041662976 [21020 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	170.66
+	136.34
+	Avg perf: 153.5
+MaxInUse: 20577667584 [19624 MB] Allocation range diff: 20870454272 [19903 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	168.5
+	135.47
+	Avg perf: 151.985
+MaxInUse: 20770624768 [19808 MB] Allocation range diff: 22098731008 [21074 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	169.55
+	134.23
+	Avg perf: 151.89
+MaxInUse: 20795479808 [19832 MB] Allocation range diff: 21752326144 [20744 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	168.19
+	136.42
+	Avg perf: 152.305
+MaxInUse: 20134650624 [19201 MB] Allocation range diff: 20907903488 [19939 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	170.96
+	135.65
+	Avg perf: 153.305
+MaxInUse: 21407798528 [20416 MB] Allocation range diff: 22767728384 [21712 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	163.37
+	130.51
+	Avg perf: 146.94
+MaxInUse: 20897060864 [19928 MB] Allocation range diff: 22098935552 [21075 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	162.96
+	127.37
+	Avg perf: 145.16500000000002
+MaxInUse: 20498665472 [19549 MB] Allocation range diff: 21723096064 [20716 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	160.0
+	125.43
+	Avg perf: 142.715
+MaxInUse: 21177250048 [20196 MB] Allocation range diff: 22301753344 [21268 MB]
+train_None_vgg16_64_-1	train_None_resnet152_64_-1	
+	170.19
+	135.75
+	Avg perf: 152.97
+MaxInUse: 21176472064 [20195 MB] Allocation range diff: 22514344192 [21471 MB]
+MaxInUse: 21407798528 [20416 MB] Allocation range diff: 22767728384 [21712 MB]
+MaxInUse: 20134650624 [19201 MB] Allocation range diff: 20870454272 [19903 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	221.45
+	2835.58
+	Avg perf: 1528.5149999999999
+MaxInUse: 12297090816 [11727 MB] Allocation range diff: 12849588224 [12254 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	220.36
+	2901.71
+	Avg perf: 1561.035
+MaxInUse: 12520995584 [11940 MB] Allocation range diff: 12626619392 [12041 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	220.8
+	2901.71
+	Avg perf: 1561.255
+MaxInUse: 12549265920 [11967 MB] Allocation range diff: 13131992576 [12523 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	219.14
+	2926.65
+	Avg perf: 1572.895
+MaxInUse: 12544130048 [11963 MB] Allocation range diff: 14324788992 [13661 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	220.6
+	2851.32
+	Avg perf: 1535.96
+MaxInUse: 12875053568 [12278 MB] Allocation range diff: 13162771712 [12552 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	219.02
+	2890.02
+	Avg perf: 1554.52
+MaxInUse: 12432710400 [11856 MB] Allocation range diff: 13341082880 [12723 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	221.21
+	2817.91
+	Avg perf: 1519.56
+MaxInUse: 12411211008 [11836 MB] Allocation range diff: 13683644160 [13049 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	221.03
+	2905.66
+	Avg perf: 1563.345
+MaxInUse: 12235420160 [11668 MB] Allocation range diff: 13604547328 [12974 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	220.06
+	3022.17
+	Avg perf: 1621.115
+MaxInUse: 12732039936 [12142 MB] Allocation range diff: 13345642240 [12727 MB]
+train_None_inception3_64_-1	train_None_alexnet_512_-1	
+	220.97
+	2819.34
+	Avg perf: 1520.155
+MaxInUse: 12500715776 [11921 MB] Allocation range diff: 12855039232 [12259 MB]
+MaxInUse: 12875053568 [12278 MB] Allocation range diff: 14324788992 [13661 MB]
+MaxInUse: 12235420160 [11668 MB] Allocation range diff: 12626619392 [12041 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	95.95
+	76.26
+	Avg perf: 86.105
+MaxInUse: 20028961280 [19101 MB] Allocation range diff: 20876448000 [19909 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	94.09
+	75.7
+	Avg perf: 84.89500000000001
+MaxInUse: 21064649472 [20088 MB] Allocation range diff: 23073155072 [22004 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	94.1
+	75.74
+	Avg perf: 84.91999999999999
+MaxInUse: 20832713728 [19867 MB] Allocation range diff: 22254006272 [21223 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	93.57
+	75.75
+	Avg perf: 84.66
+MaxInUse: 21810551552 [20800 MB] Allocation range diff: 25318084608 [24145 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	93.41
+	76.02
+	Avg perf: 84.715
+MaxInUse: 21350582784 [20361 MB] Allocation range diff: 24849958144 [23698 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	93.23
+	75.24
+	Avg perf: 84.235
+MaxInUse: 20490078208 [19540 MB] Allocation range diff: 20630791424 [19675 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	92.35
+	75.95
+	Avg perf: 84.15
+MaxInUse: 20833213952 [19868 MB] Allocation range diff: 24330505728 [23203 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	91.34
+	75.66
+	Avg perf: 83.5
+MaxInUse: 20682140160 [19724 MB] Allocation range diff: 21777915648 [20769 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	93.82
+	75.67
+	Avg perf: 84.745
+MaxInUse: 20423697920 [19477 MB] Allocation range diff: 21284468736 [20298 MB]
+train_None_inception3_64_-1	train_None_inception4_64_-1	
+	91.63
+	75.65
+	Avg perf: 83.64
+MaxInUse: 21246697728 [20262 MB] Allocation range diff: 24729707520 [23584 MB]
+MaxInUse: 21810551552 [20800 MB] Allocation range diff: 25318084608 [24145 MB]
+MaxInUse: 20028961280 [19101 MB] Allocation range diff: 20630791424 [19675 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	102.44
+	88.83
+	Avg perf: 95.63499999999999
+MaxInUse: 21595640576 [20595 MB] Allocation range diff: 23077741824 [22008 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	102.65
+	87.8
+	Avg perf: 95.225
+MaxInUse: 20693391616 [19734 MB] Allocation range diff: 21488655872 [20493 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	100.94
+	88.36
+	Avg perf: 94.65
+MaxInUse: 20409709568 [19464 MB] Allocation range diff: 21555235328 [20556 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	101.19
+	87.8
+	Avg perf: 94.495
+MaxInUse: 21952744448 [20935 MB] Allocation range diff: 22892388352 [21831 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	101.41
+	88.52
+	Avg perf: 94.965
+MaxInUse: 20854677760 [19888 MB] Allocation range diff: 22279844096 [21247 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	102.01
+	87.99
+	Avg perf: 95.0
+MaxInUse: 20493863168 [19544 MB] Allocation range diff: 21398216192 [20406 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	101.83
+	88.11
+	Avg perf: 94.97
+MaxInUse: 20399186688 [19454 MB] Allocation range diff: 21422308352 [20429 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	98.97
+	89.9
+	Avg perf: 94.435
+MaxInUse: 20119930368 [19187 MB] Allocation range diff: 20450831104 [19503 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	100.59
+	87.96
+	Avg perf: 94.275
+MaxInUse: 21358144512 [20368 MB] Allocation range diff: 24254697472 [23131 MB]
+train_None_inception3_64_-1	train_None_resnet152_64_-1	
+	101.9
+	88.2
+	Avg perf: 95.05000000000001
+MaxInUse: 20843450368 [19877 MB] Allocation range diff: 22273415936 [21241 MB]
+MaxInUse: 21952744448 [20935 MB] Allocation range diff: 24254697472 [23131 MB]
+MaxInUse: 20119930368 [19187 MB] Allocation range diff: 20450831104 [19503 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2716.21
+	108.01
+	Avg perf: 1412.1100000000001
+MaxInUse: 17703096064 [16882 MB] Allocation range diff: 18197801984 [17354 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2757.67
+	108.01
+	Avg perf: 1432.8400000000001
+MaxInUse: 17369694720 [16565 MB] Allocation range diff: 17446373888 [16638 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2615.04
+	108.12
+	Avg perf: 1361.58
+MaxInUse: 18463439360 [17608 MB] Allocation range diff: 19412749056 [18513 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2658.38
+	108.04
+	Avg perf: 1383.21
+MaxInUse: 17726817536 [16905 MB] Allocation range diff: 18338180096 [17488 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2744.82
+	108.19
+	Avg perf: 1426.505
+MaxInUse: 17634419968 [16817 MB] Allocation range diff: 18041777664 [17205 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2641.64
+	108.27
+	Avg perf: 1374.955
+MaxInUse: 18727371776 [17859 MB] Allocation range diff: 19533977088 [18629 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2443.31
+	108.09
+	Avg perf: 1275.7
+MaxInUse: 18868591616 [17994 MB] Allocation range diff: 19744349440 [18829 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2392.77
+	107.96
+	Avg perf: 1250.365
+MaxInUse: 17783719168 [16959 MB] Allocation range diff: 18136006656 [17295 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2709.96
+	108.17
+	Avg perf: 1409.065
+MaxInUse: 17166346752 [16371 MB] Allocation range diff: 17705499904 [16885 MB]
+train_None_alexnet_512_-1	train_None_inception4_64_-1	
+	2780.33
+	108.05
+	Avg perf: 1444.19
+MaxInUse: 16982681600 [16195 MB] Allocation range diff: 17828142336 [17002 MB]
+MaxInUse: 18868591616 [17994 MB] Allocation range diff: 19744349440 [18829 MB]
+MaxInUse: 16982681600 [16195 MB] Allocation range diff: 17446373888 [16638 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2815.23
+	136.74
+	Avg perf: 1475.9850000000001
+MaxInUse: 16942233600 [16157 MB] Allocation range diff: 17413614848 [16606 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2841.85
+	136.72
+	Avg perf: 1489.2849999999999
+MaxInUse: 15055966464 [14358 MB] Allocation range diff: 15074159360 [14375 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2756.6
+	136.39
+	Avg perf: 1446.495
+MaxInUse: 15403488768 [14689 MB] Allocation range diff: 15423683328 [14709 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2874.16
+	136.38
+	Avg perf: 1505.27
+MaxInUse: 14461675520 [13791 MB] Allocation range diff: 14486318592 [13815 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2735.88
+	136.4
+	Avg perf: 1436.14
+MaxInUse: 15299656960 [14590 MB] Allocation range diff: 15593937920 [14871 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2719.86
+	136.17
+	Avg perf: 1428.015
+MaxInUse: 14462007808 [13792 MB] Allocation range diff: 14486652928 [13815 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2651.54
+	136.47
+	Avg perf: 1394.0049999999999
+MaxInUse: 18572491520 [17712 MB] Allocation range diff: 18719170816 [17851 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2668.77
+	134.59
+	Avg perf: 1401.68
+MaxInUse: 18470907392 [17615 MB] Allocation range diff: 18584879616 [17723 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2845.53
+	136.34
+	Avg perf: 1490.9350000000002
+MaxInUse: 15180029184 [14476 MB] Allocation range diff: 15201171712 [14496 MB]
+train_None_alexnet_512_-1	train_None_resnet152_64_-1	
+	2690.4
+	136.34
+	Avg perf: 1413.3700000000001
+MaxInUse: 15257434624 [14550 MB] Allocation range diff: 16619951872 [15850 MB]
+MaxInUse: 18572491520 [17712 MB] Allocation range diff: 18719170816 [17851 MB]
+MaxInUse: 14461675520 [13791 MB] Allocation range diff: 14486318592 [13815 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.37
+	61.59
+	Avg perf: 60.980000000000004
+MaxInUse: 23711046912 [22612 MB] Allocation range diff: 24332916992 [23205 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.44
+	62.53
+	Avg perf: 61.485
+MaxInUse: 25370213376 [24194 MB] Allocation range diff: 25862452224 [24664 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.61
+	63.36
+	Avg perf: 61.985
+MaxInUse: 24302004480 [23176 MB] Allocation range diff: 24749715200 [23603 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.25
+	62.47
+	Avg perf: 61.36
+MaxInUse: 23792199680 [22690 MB] Allocation range diff: 24437285632 [23305 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.25
+	61.38
+	Avg perf: 60.815
+MaxInUse: 24961197824 [23804 MB] Allocation range diff: 27030518272 [25778 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.34
+	62.34
+	Avg perf: 61.34
+MaxInUse: 26714123520 [25476 MB] Allocation range diff: 26874009600 [25629 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.46
+	63.08
+	Avg perf: 61.769999999999996
+MaxInUse: 24266396672 [23142 MB] Allocation range diff: 24766137856 [23618 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.35
+	63.25
+	Avg perf: 61.8
+MaxInUse: 23965561344 [22855 MB] Allocation range diff: 25028959488 [23869 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.35
+	63.25
+	Avg perf: 61.8
+MaxInUse: 27410007552 [26140 MB] Allocation range diff: 27816834048 [26528 MB]
+train_None_inception4_64_-1	train_None_resnet152_64_-1	
+	60.43
+	64.31
+	Avg perf: 62.370000000000005
+MaxInUse: 23764343808 [22663 MB] Allocation range diff: 24074277376 [22959 MB]
+MaxInUse: 27410007552 [26140 MB] Allocation range diff: 27816834048 [26528 MB]
+MaxInUse: 23711046912 [22612 MB] Allocation range diff: 24074277376 [22959 MB]

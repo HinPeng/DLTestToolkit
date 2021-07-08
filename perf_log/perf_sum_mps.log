@@ -1,0 +1,208 @@
+train_None_Tacotron_27	train_None_Tacotron_27	
+	4.54292
+	4.47732
+	Avg perf: 4.51012
+train_Tacotron_None_50_2GPUs_parameter_server	train_Tacotron_None_50_2GPUs_parameter_server	
+	5.0646
+	5.32102
+	Avg perf: 5.19281
+train_Tacotron_None_52_2GPUs_parameter_server	train_Tacotron_None_52_2GPUs_parameter_server	
+	5.283459999999999
+	5.068
+	Avg perf: 5.17573
+train_None_deepspeech_33_rnn	train_None_deepspeech_33_rnn	
+	0.3601105789473684
+	0.3589195263157895
+	Avg perf: 0.35951505263157896
+train_deepspeech_None_48_2GPUs_parameter_server_rnn	train_deepspeech_None_48_2GPUs_parameter_server_rnn	
+	0.3687498947368421
+	0.36248210526315794
+	Avg perf: 0.36561600000000005
+train_bert-base_None_21_2GPUs_parameter_server	train_bert-base_None_21_2GPUs_parameter_server	
+	1.4745204886363636
+	1.4635412272727273
+	Avg perf: 1.4690308579545455
+train_None_alexnet_1403	train_None_alexnet_1403	
+	978.26
+	982.93
+	Avg perf: 980.595
+train_alexnet_None_1519_2GPUs_parameter_server	train_alexnet_None_1519_2GPUs_parameter_server	
+	1803.65
+	1807.52
+	Avg perf: 1805.585
+train_resnet50_None_67_2GPUs_parameter_server	train_resnet50_None_67_2GPUs_parameter_server	
+	247.5
+	246.52
+	Avg perf: 247.01
+train_None_inception3_40	train_None_inception3_40	
+	73.62
+	72.7
+	Avg perf: 73.16
+train_inception3_None_40_2GPUs_parameter_server	train_inception3_None_40_2GPUs_parameter_server	
+	147.36
+	148.85
+	Avg perf: 148.10500000000002
+train_resnet50_None_67_2GPUs_parameter_server	train_resnet50_None_67_2GPUs_parameter_server	
+	237.12
+	235.46
+	Avg perf: 236.29000000000002
+train_None_vgg16_35	train_None_vgg16_35	
+	59.35
+	59.16
+	Avg perf: 59.254999999999995
+train_vgg16_None_17_2GPUs_parameter_server	train_vgg16_None_17_2GPUs_parameter_server	
+	68.16
+	66.59
+	Avg perf: 67.375
+train_None_bert-base_18	train_None_bert-base_18	
+	1.8411346179775279
+	1.8224795168539327
+	Avg perf: 1.8318070674157303
+train_bert-base_None_18_2GPUs_parameter_server	train_bert-base_None_18_2GPUs_parameter_server	
+	1.5879307954545454
+	1.5804861136363635
+	Avg perf: 1.5842084545454544
+train_None_vgg16_25	train_None_vgg16_25	
+	62.92
+	63.72
+	Avg perf: 63.32
+train_None_vgg16_28	train_None_vgg16_28	
+	64.52
+	64.37
+	Avg perf: 64.445
+train_None_vgg16_30	train_None_vgg16_30	
+	66.13
+	66.41
+	Avg perf: 66.27
+train_None_vgg16_20_2GPUs_parameter_server	train_None_vgg16_20_2GPUs_parameter_server	
+	79.3
+	79.16
+	Avg perf: 79.22999999999999
+train_None_vgg16_22_2GPUs_parameter_server	train_None_vgg16_22_2GPUs_parameter_server	
+	80.22
+	77.3
+	Avg perf: 78.75999999999999
+train_None_Tacotron_16	train_None_Tacotron_16	
+	4.37132
+	4.56874
+	Avg perf: 4.4700299999999995
+train_None_Tacotron_20	train_None_Tacotron_20	
+	4.22104
+	4.2236199999999995
+	Avg perf: 4.2223299999999995
+train_None_Tacotron_22	train_None_Tacotron_22	
+	4.2800199999999995
+	4.3001
+	Avg perf: 4.2900599999999995
+train_None_Tacotron_30_2GPUs_parameter_server	train_None_Tacotron_30_2GPUs_parameter_server	
+	5.04758
+	4.81788
+	Avg perf: 4.932729999999999
+train_None_Tacotron_40_2GPUs_parameter_server	train_None_Tacotron_40_2GPUs_parameter_server	
+	5.02216
+	4.93048
+	Avg perf: 4.97632
+train_None_Tacotron_42_2GPUs_parameter_server	train_None_Tacotron_42_2GPUs_parameter_server	
+	5.12794
+	4.91632
+	Avg perf: 5.02213
+train_None_Tacotron_25_-1	train_None_Tacotron_25_-1	
+	4.515280000000001
+	4.53928
+	Avg perf: 4.52728
+train_None_Tacotron_27_-1	train_None_Tacotron_27_-1	
+	4.867
+	4.568460000000001
+	Avg perf: 4.71773
+train_None_Tacotron_25_0.5	train_None_Tacotron_25_0.5	
+	4.6908199999999995
+	4.58702
+	Avg perf: 4.63892
+train_None_Tacotron_27_0.5	train_None_Tacotron_27_0.5	
+	4.4471
+	4.55844
+	Avg perf: 4.50277
+train_None_Tacotron_48_-1_2GPUs_parameter_server	train_None_Tacotron_48_-1_2GPUs_parameter_server	
+	5.20688
+	5.13438
+	Avg perf: 5.17063
+train_None_Tacotron_52_-1_2GPUs_parameter_server	train_None_Tacotron_52_-1_2GPUs_parameter_server	
+	5.1773
+	5.15486
+	Avg perf: 5.16608
+train_None_Tacotron_54_-1_2GPUs_parameter_server	train_None_Tacotron_54_-1_2GPUs_parameter_server	
+	5.22216
+	5.13216
+	Avg perf: 5.17716
+train_None_Tacotron_48_0.5_2GPUs_parameter_server	train_None_Tacotron_48_0.5_2GPUs_parameter_server	
+	5.02038
+	5.255059999999999
+	Avg perf: 5.13772
+train_None_Tacotron_52_0.5_2GPUs_parameter_server	train_None_Tacotron_52_0.5_2GPUs_parameter_server	
+	5.10564
+	5.174279999999999
+	Avg perf: 5.139959999999999
+train_None_Tacotron_54_0.5_2GPUs_parameter_server	train_None_Tacotron_54_0.5_2GPUs_parameter_server	
+	5.3016
+	5.4322
+	Avg perf: 5.366899999999999
+train_None_bert-base_18_0.5	train_None_bert-base_18_0.5	
+	1.8347065505617977
+	1.8288355056179777
+	Avg perf: 1.8317710280898876
+train_None_bert-base_20_0.5	train_None_bert-base_20_0.5	
+	1.6139257415730335
+	1.6066598089887638
+	Avg perf: 1.6102927752808986
+train_None_bert-base_22_0.5_2GPUs_parameter_server	train_None_bert-base_22_0.5_2GPUs_parameter_server	
+	1.432488681818182
+	1.4271012954545457
+	Avg perf: 1.4297949886363637
+train_None_vgg16_28_0.5	train_None_vgg16_28_0.5	
+	64.15
+	63.51
+	Avg perf: 63.83
+train_None_vgg16_38_0.5	train_None_vgg16_38_0.5	
+	64.59
+	63.76
+	Avg perf: 64.175
+train_None_vgg16_43_0.5	train_None_vgg16_43_0.5	
+	65.16
+	65.54
+	Avg perf: 65.35
+train_None_vgg16_18_0.5_2GPUs_parameter_server	train_None_vgg16_18_0.5_2GPUs_parameter_server	
+	70.35
+	70.13
+	Avg perf: 70.24
+train_None_vgg16_23_0.5_2GPUs_parameter_server	train_None_vgg16_23_0.5_2GPUs_parameter_server	
+	86.01
+	86.09
+	Avg perf: 86.05000000000001
+train_None_vgg16_28_-1	train_None_vgg16_28_-1	
+	67.65
+	65.41
+	Avg perf: 66.53
+train_None_vgg16_33_-1	train_None_vgg16_33_-1	
+	56.95
+	57.18
+	Avg perf: 57.065
+train_None_vgg16_18_-1_2GPUs_parameter_server	train_None_vgg16_18_-1_2GPUs_parameter_server	
+	67.95
+	67.84
+	Avg perf: 67.89500000000001
+train_None_vgg16_20_-1_2GPUs_parameter_server	train_None_vgg16_20_-1_2GPUs_parameter_server	
+	83.89
+	84.05
+	Avg perf: 83.97
+train_None_bert-base_18_-1	train_None_bert-base_18_-1	
+	1.8143901460674159
+	1.7946261573033708
+	Avg perf: 1.8045081516853934
+train_None_bert-base_22_-1_2GPUs_parameter_server	train_None_bert-base_22_-1_2GPUs_parameter_server	
+	1.4166375931818183
+	1.4329193181818183
+	Avg perf: 1.4247784556818184
+train_None_Tacotron_54_-1_2GPUs_parameter_server_ag	train_None_Tacotron_54_-1_2GPUs_parameter_server_ag	
+	5.605
+	5.354
+	Avg perf: 5.4795
