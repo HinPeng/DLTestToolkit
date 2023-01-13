@@ -1,12 +1,20 @@
+
+import argparse
+import logging
+import logger
+import subprocess
+
 from common_run import *
 from get_allocator_stats import Get
+from params import get_argument_parser
 
-import subprocess
+# import sys
 import config
 
 _interval_threshold = 2
 _max_retry_num = 1
-WORKHOME=os.environ['HOME']+'/px'
+WORKHOME=os.environ['HOME']+'/'+config._PREFIX
+
 
 def single_run():
   # model = 'bert-large'
@@ -159,8 +167,7 @@ def multi_run():
   #   'Tacotron' : (27, 54),
   # }
   # all_models = {'resnet50', 'vgg16', 'inception3', 'alexnet'}
-  # all_models = {'resnet152', 'inception4'}
-  all_models = {'bert-base'}
+  all_models = {'resnet50'}
   # for model in bert_models:
   #   if not batch_sizes.__contains__(model):
   #     continue
@@ -187,8 +194,8 @@ def multi_run():
     
     max_in_uses = []
     alloc_ranges = []
-    for i in range(10):
-      server = launch_grpc_server(gpu_id=i%2+2)
+    for i in range(1):
+      server = launch_grpc_server(gpu_id=i%2)
       time.sleep(5)
       run_seq(model=model, is_train=is_train, dataset=dataset, rnn_type=rnn_type,
               num_gpus=num_gpus, interference_test=True, only_interference=True, gpu_mem_frac=gpu_mem_frac)
@@ -202,37 +209,6 @@ def multi_run():
       alloc_ranges.append(alloc_range)
       log_bfc_allocator_stats(max_in_use, alloc_range)
     log_bfc_allocator_stats(max(max_in_uses), max(alloc_ranges))
-    log_bfc_allocator_stats(min(max_in_uses), min(alloc_ranges))
-
-def grpc_server_mix_run():
-  # all_models = ['resnet50', 'alexnet']
-  all_models = ['resnet50', 'vgg16', 'inception3', 'alexnet', 'inception4', 'resnet152']
-
-  n = len(all_models)
-
-  for i in range(n-1):
-    for j in range(i+1, n):
-      max_in_uses = []
-      alloc_ranges = []
-      model1 = all_models[i]
-      model2 = all_models[j]
-      for r in range(10):        
-        server = launch_grpc_server(gpu_id=r%2+2)
-        time.sleep(5)
-        cfg1 = RunConfig(model=model1, num_gpus=1)
-        cfg2 = RunConfig(model=model2, num_gpus=1)
-
-        run_shell([cfg1, cfg2])
-
-        time.sleep(30)
-        server.kill()
-        filepath = WORKHOME+'/log/server.log'
-        max_in_use, alloc_range = Get(filepath)
-        max_in_uses.append(max_in_use)
-        alloc_ranges.append(alloc_range)
-        log_bfc_allocator_stats(max_in_use, alloc_range)
-      log_bfc_allocator_stats(max(max_in_uses), max(alloc_ranges))
-      log_bfc_allocator_stats(min(max_in_uses), min(alloc_ranges))
 
 
 def mixedrun():
@@ -259,23 +235,25 @@ def mixedrun():
 
   run_shell([cfg1, cfg2])
 
-def launch_grpc_server(gpu_id=1):
+def launch_grpc_server(gpu_id=1, num_streams=1):
   server_bin_path = WORKHOME+'/tensorflow-1.15.2/bazel-bin/tensorflow/core/distributed_runtime/rpc/grpc_testlib_server'
   exec_cmd = [
     server_bin_path,
     '--tf_jobs=localhost|29999',
     '--tf_job=localhost',
     '--tf_task=0',
-    '--num_cpus=1',
+    '--num_cpus=2',
     '--num_gpus=1',
+    '--num_streams={}'.format(num_streams),
   ]
 
   log_file = WORKHOME+'/log/server.log'
   file_out = open(log_file, 'w')
   # server_env = dict(CUDA_VISIBLE_DEVICES='1', _TF_LOG_ALLOCATOR_STATS='true')
   os.environ['CUDA_VISIBLE_DEVICES'] = '{}'.format(gpu_id)
-  os.environ['_TF_LOG_ALLOCATOR_STATS'] = 'true'
-  os.environ['_TF_USE_ALIGNED_SCHEDULING'] = 'true' if config._TF_USE_ALIGNED_SCHEDULING else 'false'
+  os.environ['TF_MULTI_GRAPHS_SCHEDULE_ALGORITHM'] = '{}'.format(config._TF_MULTI_GRAPHS_SCHEDULE_ALGORITHM)
+  # os.environ['_TF_LOG_ALLOCATOR_STATS'] = 'true'
+  # os.environ['_TF_USE_ALIGNED_SCHEDULING'] = 'true' if config._TF_USE_ALIGNED_SCHEDULING else 'false'
   server_proc = subprocess.Popen(exec_cmd, shell=False, stdout=file_out.fileno(), stderr=file_out.fileno())
   return server_proc
 
@@ -284,15 +262,83 @@ def log_bfc_allocator_stats(max_in_use, alloc_range):
     fout.write("MaxInUse: {} [{} MB] Allocation range diff: {} [{} MB]\n".format(
       max_in_use, (max_in_use >> 20), alloc_range, (alloc_range >> 20)))
 
-def main():
-  # InitPeakMem()
-  # multi_run()
-  grpc_server_mix_run()
-  # server = launch_grpc_server(3)
-  # time.sleep(10)
-  # server.kill()
-  # single_run()
-  # mixedrun()
+def grpc_server_mix_run(gpu_id=1, num_streams=1):
+  server = launch_grpc_server(gpu_id=gpu_id, num_streams=num_streams)
+  time.sleep(1)
+
+  # model = 'bert-base'
+  # cfg = RunConfig(model=model, num_gpus=1)
+  # run_shell([cfg])
+
+  model1 = 'resnet50'
+  model2 = 'resnet50'
+
+  cfg1 = RunConfig(model=model1, num_gpus=1)
+  cfg2 = RunConfig(model=model2, num_gpus=1)
+
+  run_shell([cfg1, cfg2])
+
+  time.sleep(15)
+  server.kill()
+
+  # all_models = ['resnet50', 'alexnet']
+  # all_models = ['resnet50', 'vgg16', 'inception3', 'alexnet']
+
+  # n = len(all_models)
+
+  # for i in range(n-1):
+  #   for j in range(i+1, n):
+  #     max_in_uses = []
+  #     alloc_ranges = []
+  #     for r in range(10):
+  #       model1 = all_models[i]
+  #       model2 = all_models[j]
+
+  #       server = launch_grpc_server(gpu_id=r%2)
+  #       time.sleep(5)
+  #       cfg1 = RunConfig(model=model1, num_gpus=1)
+  #       cfg2 = RunConfig(model=model2, num_gpus=1)
+
+  #       run_shell([cfg1, cfg2])
+
+  #       time.sleep(30)
+  #       server.kill()
+  #       filepath = WORKHOME+'log/server.log'
+  #       max_in_use, alloc_range = Get(filepath)
+  #       max_in_uses.append(max_in_use)
+  #       alloc_ranges.append(alloc_range)
+  #       log_bfc_allocator_stats(max_in_use, alloc_range)
+  #     log_bfc_allocator_stats(max(max_in_uses), max(alloc_ranges))
+
+def local_run(args):
+  is_fp16 = True if args.fp16 else False
+  # cfg = RunConfig(model=args.model, is_train=args.is_train, num_gpus=args.num_gpus,
+  #                 batch_size=args.batch_size,
+  #                 seq_length=args.seq_length, is_fp16=is_fp16)
+  
+  cfg = RunConfig(args)  # TODO: move to this style
+  # debug
+  # cfg.initcmd()
+  # cfg.cmd_debug()
+  run_shell([cfg], save_log=True)
+
+def get_perf(args):
+  is_fp16 = True if args.fp16 else False
+  cfg = RunConfig(model=args.model, is_train=args.is_train, num_gpus=args.num_gpus,
+                  batch_size=args.batch_size,
+                  seq_length=args.seq_length, is_fp16=is_fp16)
+  perf = GetPerf(cfg, [args.perf_file])
+  logging.info("Perf: {}".format(perf))
+
 
 if __name__ == '__main__':
-  main()
+  parser = get_argument_parser()
+
+  args = parser.parse_args()
+
+  if args.action == 'grpc_server':
+    grpc_server_mix_run(gpu_id=args.gpu_id, num_streams=args.num_streams)
+  elif args.action == 'local':
+    local_run(args)
+  elif args.action == 'get_perf':
+    get_perf(args)

@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+_PREFIX = 'workspace'  # the prefix dir name relative to $HOME
+
 _TOTAL_MEM = 16  # GB
 _FRAC_TO_SUBTRACT = 0.0
 _LOGNODE_TIME = False

@@ -3,6 +3,10 @@ from __future__ import print_function
 import os
 import sys
 import time
+
+import argparse
+import logging
+import logger
 import json
 import subprocess
 
@@ -10,22 +14,27 @@ import numpy as np
 
 import config
 
-WORKHOME=os.environ['HOME']+'/px'
 
-_perf_offset = 1
+home_dir = os.environ['HOME']
+WORKHOME = os.path.join(home_dir, config._PREFIX)
+BERT_BASE_HOME = os.path.join(WORKHOME, 'bert_models')
+
+_perf_offset = 0
 
 _eval_batch_size = 64
 
 cnn_models = ['alexnet', 'vgg16', 'resnet50', 'inception3', 'resnet152', 'inception4']
 cnn_cifar10_models = ['alexnet', 'resnet20_v2', 'resnet56_v2', 'resnet110_v2']
 
-bert_models = ['bert-tiny', 'bert-mini', 'bert-small', 'bert-medium', 'bert-base', 'bert-large']
-bert_base_dirs = {'bert-tiny' : '{}/bert/uncased_L-2_H-128_A-2'.format(WORKHOME),
-                  'bert-mini' : '{}/bert/uncased_L-4_H-256_A-4'.format(WORKHOME),
-                  'bert-small' : '{}/bert/uncased_L-4_H-512_A-8'.format(WORKHOME),
-                  'bert-medium' : '{}/bert/uncased_L-8_H-512_A-8'.format(WORKHOME),
-                  'bert-base' : '{}/bert/bert_base_uncase'.format(WORKHOME),
-                  'bert-large' : '{}/bert/uncased_L-24_H-1024_A-16'.format(WORKHOME)}
+bert_models = ['bert-tiny', 'bert-mini', 'bert-small', 'bert-medium', 'bert_base_uncased', 'bert_large_uncased']
+
+# TODO: to be modified
+bert_dirs = {'bert-tiny' : '{}/uncased_L-2_H-128_A-2'.format(BERT_BASE_HOME),
+             'bert-mini' : '{}/uncased_L-4_H-256_A-4'.format(BERT_BASE_HOME),
+             'bert-small' : '{}/uncased_L-4_H-512_A-8'.format(BERT_BASE_HOME),
+             'bert-medium' : '{}/uncased_L-8_H-512_A-8'.format(BERT_BASE_HOME),
+             'bert_base_uncased' : '{}/bert_base_uncased'.format(BERT_BASE_HOME),
+             'bert_large_uncased' : '{}/bert_large_uncased'.format(BERT_BASE_HOME)}
 
 mobile_models = ['mobilenet_v2', 'mobilenet_v3_small']
 preprocess_name = {'mobilenet_v2' : 'inception_v2', 'mobilenet_v3_small' : 'inception_v3'}
@@ -44,7 +53,8 @@ default_bs = {
   'bert-mini' : 16,
   'bert-small' : 32,
   'bert-medium' : 64,
-  'bert-base' : 32,
+  'bert_base_uncased' : 32,
+  'bert_large_uncased' : 16,
   'mobilenet_v2' : 96,
   'mobilenet_v3_small' : 192,
   'Tacotron' : 32,
@@ -80,53 +90,184 @@ _bert_multi_gpu_dir = '{}/bert_multigpu/bert'.format(WORKHOME)
 _mobilenet_dir = '{}/models/research/slim'.format(WORKHOME)
 _deepspeech_dir = '{}/models/research/deep_speech'.format(WORKHOME)
 _tacotron2_dir = '{}/Tacotron2'.format(WORKHOME)
+_deepspeed_dir = '{}/DeepSpeedExamples'.format(WORKHOME)
+_deepspeed_bert_dir = '{}/bing_bert'.format(_deepspeed_dir)
 
 peak_mem = dict()
 perf_dir = './perf_log'
+log_dir = os.path.join(WORKHOME, 'log')
 if config._USE_CUDA_MPS:
   perf_log = '{}/{}'.format(perf_dir, 'perf_sum_mps.log')
 else:
   perf_log = '{}/{}'.format(perf_dir, 'perf_sum.log')
 if not os.path.exists(perf_dir):
   os.mkdir(perf_dir)
+if not os.path.exists(log_dir):
+  os.mkdir(log_dir)
 
+
+class BertParams(object):
+  def __init__(self, model):
+    if model not in bert_models:
+      logging.error('Please provide a bert model!')
+      return
+    self.model_index = -1
+    if 'base' in model:
+      self.model_index = 0
+    elif 'large' in model:
+      self.model_index = 1
+    else:
+      logging.error('Can not identify which bert model it is: {}'.format(model))
+      return
+    
+    # self._type_index = {'base' : 0, 'large' : 1}
+    self.vocab_size_or_config_json_file = 119547
+    self.hidden_size = [768, 1024]
+    self.num_hidden_layers = [12, 24]
+    self.num_attention_heads = [12, 16]
+    self.intermediate_size = [3072, 4096]
+    self.hidden_act = 'gelu'
+    self.hidden_dropout_prob = 0.1
+    self.attention_probs_dropout_prob = 0.1
+    self.max_position_embeddings = 512
+    self.type_vocab_size = 2
+    self.initializer_range = 0.02
+
+  def __iter__(self):
+    attrs = dir(self)
+    for attr in attrs:
+      if attr.find('__') == 0:
+        continue
+      if attr == 'model_index':
+        continue
+      value = getattr(self, attr)
+      if isinstance(value, list):
+        value = value[self.model_index]
+      if callable(value):
+        continue
+      yield (attr, value)
+
+class OptimizerParams(object):
+  def __init__(self, name='Adam', lr=1e-3, weight_decay=0.01):
+    self.name = name
+    self.lr = lr
+    self.weight_decay = weight_decay
+    self.bias_correction = False
+
+# ZeRO sub parameters
+class OffloadParam():
+  def __init__(self):
+    self.device = 'cpu'
+    self.nvme_path = "/local_nvme"
+    self.pin_memory = True
+    self.buffer_count = 5
+    self.buffer_size = 1e8
+    self.max_in_cpu = 1e9
+
+  def __iter__(self):
+    attrs = dir(self)
+    for attr in attrs:
+      if attr.find('__') == 0:
+        continue
+      value = getattr(self, attr)
+      if callable(value):
+        continue
+      yield (attr, value)
+
+# ZeRO sub parameters
+class OffloadOptimizer():
+  def __init__(self):
+    self.device = 'cpu'
+    self.nvme_path = '/local_nvme'
+    self.pin_memory = True
+    self.buffer_count = 4
+    self.fast_init = False
+
+  def __iter__(self):
+    attrs = dir(self)
+    for attr in attrs:
+      if attr.find('__') == 0:
+        continue
+      value = getattr(self, attr)
+      if callable(value):
+        continue
+      yield (attr, value)
+
+class ZeROParams(object):
+  def __init__(self, args):
+    self.stage = args.stage
+    self.allgather_partitions = True
+    self.allgather_bucket_size : int = args.allgather_bucket_size
+    self.overlap_comm = args.overlap_comm
+    self.reduce_scatter = True
+    self.reduce_bucket_size : int = args.reduce_bucket_size
+    self.contiguous_gradients = True
+    self.__is_offload_param = args.offload_param
+    self.offload_param = dict(OffloadParam())
+    self.__is_offload_optimizer = args.offload_optimizer
+    self.offload_optimizer = dict(OffloadOptimizer())  
+    self.stage3_max_live_parameters : int = 1e9
+    self.stage3_max_reuse_distance : int = 1e9
+    self.stage3_prefetch_bucket_size : int = args.reduce_bucket_size  # default is 5e8, make this value equal to reduce_bucket_size
+    self.stage3_param_persistence_threshold : int = 1e6
+    self.sub_group_size : int = 1e12
+    # self.elastic_checkpoint = # Not sure whether this option exists
+    self.stage3_gather_16bit_weights_on_model_save = False
+    self.ignore_unused_parameters = True
+    self.round_robin_gradients = False
+
+  def __iter__(self):
+    attrs = dir(self)
+    for attr in attrs:
+      if attr.find('__') == 0 or attr.find('_ZeROParams') == 0:
+        continue
+      if attr == 'offload_param' and not self.__is_offload_param:
+        continue
+      if attr == 'offload_optimizer' and not self.__is_offload_optimizer:
+        continue
+      value = getattr(self, attr)
+      if callable(value):
+        continue
+      yield (attr, value)
 
 class RunConfig(object):
-  __slots__ = [
-    'model',
-    'batch_size',
-    'num_batches',
-    'num_gpus',
-    'gpu_mem_frac',
-    'variable_update',
-    'is_train',
-    'dataset',
-    'rnn_type', # for deepspeech
-    'cd_cmd',
-    'pre_cmd',
-    'run_cmd',
-  ]
-
-  def __init__(self, **kwargs):
+  def __init__(self, args):
     super(RunConfig, self).__init__()
 
-    self.model = None
-    self.batch_size = -1
-    self.num_batches = -1
-    self.num_gpus = 1
-    self.gpu_mem_frac = -1
-    # self.variable_update = 'parameter_server'
-    self.variable_update = 'replicated'
-    self.is_train = True
-    self.dataset = None   # 'imagenet' or 'cifar10'
-    self.rnn_type = None
+    self.model = args.model
+    self.batch_size = args.batch_size
+    self.num_batches = args.num_batches
+    self.num_gpus = args.num_gpus
+    self.gpu_mem_frac = args.gpu_mem_frac  # TODO
+    self.variable_update = args.variable_update
+    self.is_train = args.is_train
+    self.dataset = None
+    self.rnn_type = args.rnn_type
+    self.seq_length = args.seq_length
+    self.optimizer_params = OptimizerParams(args.optimizer_name)
+    self.zero_params = ZeROParams(args)
 
+    # deepspeed configs
+    self.ds_config_fname = None
+    self.bert_config_fname = None
+    self.is_fp16 = args.fp16
+    self.is_pretrain = args.is_pretrain
+    self.is_pt = False
+    self.is_ds = False
+    
+    # the execution commands
     self.cd_cmd = None
     self.pre_cmd = None
     self.run_cmd = None
 
-    for f, v in kwargs.items():
-      setattr(self, f, v)
+    if self.model.startswith('ds-'):
+      self.is_ds = True
+      self.is_pt = True
+      self.model = self.model[3:]
+    elif self.model.startswith('pt-'):
+      # judge if pytorch run and remove model name prefix
+      self.is_pt = True
+      self.model = self.model[3:]
 
     if self.batch_size == -1:
       if default_bs.__contains__(self.model):
@@ -152,31 +293,78 @@ class RunConfig(object):
         print('Unrecognized model: {}'.format(self.model))
         exit(1)
 
-
     if self.dataset == None:
       if self.ismobilenet():
         self.dataset = 'imagenet'
 
-  def __repr__(self):
-    if self.num_gpus == 1:
-      res = '{}_{}_{}_{}_{}'.format('train' if self.is_train else 'eval',
-                                  self.dataset, self.model, self.batch_size, self.gpu_mem_frac)
+  # def __repr__(self):
+  #   model_name = ''
+  #   if self.is_ds:
+  #     model_name = 'ds-'
+  #   elif self.is_pt:
+  #     model_name = 'pt-'
+  #   else:
+  #     model_name = 'tf-'
+  #   model_name += self.model
+  #   res = '{}_{}_{}_GPU{}'.format('train' if self.is_train else 'eval',
+  #                                 model_name, self.batch_size, self.num_gpus)
+
+  #   if self.is_fp16:
+  #     res += '_fp16'
+  #   if self.is_ptbert():
+  #     res += '_{}_seq{}'.format(self.optimizer_params.name ,self.seq_length)
+  #     if self.zero_params.stage > 0:
+  #       res += '_zero{}_bus{:.1e}'.format(self.zero_params.stage, self.zero_params.reduce_bucket_size)
+  #   if self.isrnn():
+  #     res += '_{}'.format(self.rnn_type)
+  #   if config._ALLOW_GROWTH:
+  #     res += '_ag'
+
+  #   return res
+
+  def job_name(self):
+    model_name = ''
+    if self.is_ds:
+      model_name = 'ds-'
+    elif self.is_pt:
+      model_name = 'pt-'
     else:
-      res = '{}_{}_{}_{}_{}_{}GPUs_{}'.format('train' if self.is_train else 'eval',
-                                            self.dataset, self.model, self.batch_size, self.gpu_mem_frac,
-                                            self.num_gpus, self.variable_update)
-    if self.rnn_type is not None:
-      res += '_{}'.format(self.rnn_type)
-    if config._ALLOW_GROWTH:
-      res += '_ag'
+      model_name = 'tf-'
+    model_name += self.model
+    res = '{}_{}_{}_GPU{}'.format('train' if self.is_train else 'eval',
+                                  model_name, self.batch_size, self.num_gpus)
+    if self.is_fp16:
+      res += '_fp16'
+    if self.is_ptbert():
+      res += '_{}_seq{}'.format(self.optimizer_params.name, self.seq_length)
+      if self.zero_params.stage > 0:
+        # zero stage with bucket size
+        # with an assumption that allgather_bucket_size == reduce_scatter_size
+        res += '_zero{}_bus{:.1e}'.format(self.zero_params.stage, self.zero_params.reduce_bucket_size)
+      if self.zero_params.overlap_comm:
+        res += '_ovc'
 
     return res
+
+  def cmd_debug(self):
+    logging.debug('cd_cmd: {}'.format(self.cd_cmd))
+    logging.debug('pre_cmd: {}'.format(self.pre_cmd))
+    logging.debug('run_cmd: {}'.format(self.run_cmd))
 
   def iscnn(self):
     return self.model in cnn_models or self.model in cnn_cifar10_models
 
+  def isrnn(self):
+    return self.istacotron() or self.isdeepspeech()
+
   def isbert(self):
     return self.model in bert_models
+
+  def is_tfbert(self):
+    return self.isbert() and not self.is_pt
+
+  def is_ptbert(self):
+    return self.isbert() and self.is_pt
 
   def ismobilenet(self):
     return self.model in mobile_models
@@ -190,7 +378,100 @@ class RunConfig(object):
   def isnmt(self):
     return 'nmt' in self.model.lower()
 
-  def initcmd(self, i):
+  def init_deepspeed_config(self):
+    ds_config = dict()
+    ds_config['train_batch_size'] = self.batch_size
+    ds_config['train_micro_batch_size_per_gpu'] = self.batch_size // self.num_gpus
+    ds_config['steps_per_print'] = 1000
+    ds_config['prescale_gradients'] = False
+    ds_config['gradient_predivide_factor'] = 1.0  # default value
+    # gradient_predivide_factor != 1.0 is not yet supported with ZeRO-2 with reduce scatter enabled
+
+    # optimizer related configurations
+    ds_config['optimizer'] = dict()
+    opt_config = ds_config['optimizer']
+    opt_config['type'] = self.optimizer_params.name
+    opt_config['params'] = dict()
+    opt_config['params']['lr'] = self.optimizer_params.lr
+    opt_config['params']['weight_decay'] = self.optimizer_params.weight_decay
+    opt_config['params']['bias_correction'] = self.optimizer_params.bias_correction
+
+    ds_config['gradient_clipping'] = 1.0
+    ds_config['wall_clock_breakdown'] = False
+    ds_config['fp16'] = dict()
+    ds_config['fp16']['enabled'] = self.is_fp16
+    ds_config['fp16']['loss_scale'] = 0
+
+    # ZeRO configurations
+    ds_config['zero_optimization'] = dict(self.zero_params)
+
+    config_dir = '{}/config'.format(_deepspeed_bert_dir)
+    if not os.path.exists(config_dir):
+      os.mkdir(config_dir)
+    self.ds_config_fname = '{}/ds_bsz{}_config_seq{}'.format(
+        config_dir, self.batch_size, self.seq_length)
+    if self.is_fp16:
+      self.ds_config_fname += '_fp16'
+    if self.zero_params.stage > 0:
+      self.ds_config_fname += '_zero{}_bus{:.1e}'.format(self.zero_params.stage, self.zero_params.reduce_bucket_size)
+    self.ds_config_fname += '.json'
+    with open(self.ds_config_fname, 'w') as fout:
+      json.dump(ds_config, fout, indent=4)
+
+  def init_ds_model_config(self):
+    ds_model_config = dict()
+    ds_model_config['name'] = 'bing_{}_seq'.format(self.model)
+    ds_model_config['bert_token_file'] = '{}/{}'.format(BERT_BASE_HOME, self.model)
+    ds_model_config['bert_model_file'] = '{}/{}/pt'.format(BERT_BASE_HOME, self.model)
+
+    # Bert model configurations
+    ds_model_config['bert_model_config'] = dict(BertParams(self.model))
+
+    # dataset configurations
+    ds_model_config['data'] = dict()
+    data_config = ds_model_config['data']
+    data_config['flags'] = dict()
+    data_config['flags']['pretrain_dataset'] = True
+    data_config['flags']['pretrain_type'] = 'wiki_bc'
+    data_config['mixed_seq_datasets'] = dict()
+    data_config['mixed_seq_datasets']['128'] = dict()
+    data_config['mixed_seq_datasets']['512'] = dict()
+    data_config['mixed_seq_datasets']['128']['pretrain_dataset'] = '{}/datasets/hdf5_uncase_128_mp20/wikicorpus_en'.format(home_dir)
+    data_config['mixed_seq_datasets']['512']['pretrain_dataset'] = '{}/datasets/hdf5_uncase_512_mp20/wikicorpus_en'.format(home_dir)
+
+    # mixed training configurations
+    ds_model_config['mixed_seq_training'] = dict()
+    train_config = ds_model_config['mixed_seq_training']
+    # seq 128
+    train_config['128'] = dict()
+    train_config['128']['num_epochs'] = 1
+    train_config['128']['warmup_proportion'] = 0.06
+    train_config['128']['learning_rate'] = 11e-3
+    train_config['128']['num_workers'] = 4
+    train_config['128']['async_worker'] = True
+    train_config['128']['decay_rate'] = 0.90
+    train_config['128']['decay_step'] = 250
+    train_config['128']['total_training_steps'] = 7500
+    # seq 512
+    train_config['512'] = dict()
+    train_config['512']['num_epochs'] = 1
+    train_config['512']['warmup_proportion'] = 0.02
+    train_config['512']['learning_rate'] = 2e-3
+    train_config['512']['num_workers'] = 4
+    train_config['512']['async_worker'] = True
+    train_config['512']['decay_rate'] = 0.90
+    train_config['512']['decay_step'] = 150
+    train_config['512']['total_training_steps'] = 7500
+
+    config_dir = '{}/config'.format(_deepspeed_bert_dir)
+    if not os.path.exists(config_dir):
+      os.mkdir(config_dir)
+    self.bert_config_fname = '{}/{}_nvidia_data.json'.format(config_dir, self.model)
+    if not os.path.exists(self.bert_config_fname):
+      with open(self.bert_config_fname, 'w') as fout:
+        json.dump(ds_model_config, fout, indent=4)
+
+  def initcmd(self, i=0):
     if self.iscnn():
       self.cd_cmd = [
         'cd',
@@ -207,6 +488,8 @@ class RunConfig(object):
         '--lognode_time={}'.format(config._LOGNODE_TIME),
         '--allow_shared={}'.format(config._ALLOW_SHARE),
         '--target={}'.format(config._TARGET),
+        '--build_cost_model={}'.format(config._BUILD_COST_MODEL),
+        '--build_cost_model_after={}'.format(config._BUILD_COST_MODEL_AFTER),
       ]
       if self.gpu_mem_frac != -1:
         self.run_cmd += [
@@ -230,7 +513,7 @@ class RunConfig(object):
           '--local_parameter_device=cpu',
           '--variable_update={}'.format(self.variable_update),
         ]
-    elif self.isbert():
+    elif self.is_tfbert():
       bert_dir = ""
       if self.num_gpus == 1:
         bert_dir = _bert_single_gpu_dir
@@ -247,11 +530,11 @@ class RunConfig(object):
         './output/pretraining_output_{}'.format(i),
       ]
       common_cmd = [
-        '--input_file={}/output/tf_examples.tfrecord'.format(bert_dir),
-        '--output_dir={}/output/pretraining_output_{}'.format(bert_dir, i),
+        '--input_file={}/output/tf_examples.tfrecord'.format(_bert_single_gpu_dir),
+        '--output_dir={}/output/pretraining_output_{}'.format(_bert_single_gpu_dir,i),
         '--do_train=True',
         '--do_eval=False',
-        '--bert_config_file={}/bert_config.json'.format(bert_base_dirs[self.model]),
+        '--bert_config_file={}/tf/bert_config.json'.format(bert_dirs[self.model]),
         '--train_batch_size={}'.format(self.batch_size),
         '--max_seq_length=128',
         '--max_predictions_per_seq=20',
@@ -263,6 +546,8 @@ class RunConfig(object):
         '--lognode_time={}'.format(config._LOGNODE_TIME),
         '--allow_shared={}'.format(config._ALLOW_SHARE),
         '--master={}'.format(config._TARGET),
+        '--build_cost_model={}'.format(config._BUILD_COST_MODEL),
+        '--build_cost_model_after={}'.format(config._BUILD_COST_MODEL_AFTER),
       ]
       if self.gpu_mem_frac != -1:
         common_cmd += [
@@ -395,7 +680,7 @@ class RunConfig(object):
     elif self.isnmt():
       self.cd_cmd = [
         'cd',
-        '{}/DeepLearningExamples/TensorFlow/Translation/GNMT'.format(WORKHOME),
+        '{}/{}/DeepLearningExamples/TensorFlow/Translation/GNMT'.format(home_dir, WORKHOME),
       ]
       self.pre_cmd = [
         'rm',
@@ -425,6 +710,57 @@ class RunConfig(object):
           '--all_reduce_spec=nccl',
           '--local_parameter_device=cpu',
         ]
+    elif self.is_ptbert():
+      self.init_ds_model_config()
+      output_dir = '{}/bert_model_nvidia_data_outputs'.format(_deepspeed_bert_dir)
+      if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+      
+      # job_name = '{}_nvidia_data_{}_seq{}'.format(self.optimizer_params.name, self.batch_size, self.seq_length)      
+      self.cd_cmd = [
+        'cd',
+        _deepspeed_bert_dir,
+      ]
+      self.pre_cmd = [
+        'rm',
+        '-rf',
+        '{}/*'.format(output_dir),
+      ]
+      self.run_cmd = [
+        'deepspeed',
+        '{}/deepspeed_train.py'.format(_deepspeed_bert_dir),
+        '--cf',
+        self.bert_config_fname,
+        '--max_seq_length',
+        '{}'.format(self.seq_length),
+        '--max_predictions_per_seq',
+        '20',
+        '--output_dir',
+        output_dir,
+        '--print_steps',
+        '1',
+        '--job_name',
+        self.job_name(),
+        '--data_path_prefix',
+        '{}/datasets/hdf5_uncase_{}_mp20/wikicorpus_en'.format(home_dir, self.seq_length),
+        '--use_nvidia_dataset',
+        '--lr_schedule',
+        'EE',
+        '--lr_offset',
+        '0.0',
+        '--max_steps',
+        '{}'.format(self.num_batches),
+        '--max_steps_per_epoch',
+        '{}'.format(self.num_batches),
+        # '--use_pretrain',
+      ]
+      if self.is_ds:
+        self.init_deepspeed_config()
+        self.run_cmd += [
+          '--deepspeed',
+          '--deepspeed_config',
+          self.ds_config_fname,
+        ]
     else:
       print('Unsupported model yet: {}'.format(self.model))
       exit(1);
@@ -448,37 +784,52 @@ def InitPeakMem():
 
 # ----------- Get performance from stdout & stderr ------------ #
 
-def _GetPerfOnce(filename, keywd=None, func=None, need_avg=False):
-  perf = []
+def _GetPerfOnce(filename, keywd=None, func=None, need_avg=False, pre_offset=0, suf_offset=0, filter_frac=0.0):
+  perfs = []
   is_oom = False
-  with open(filename, encoding='utf-8') as fin:
-    lines = fin.readlines()
-    for line in lines:
-      # if 'OOM' in line or 'Segmentation' in line or 'Aborted' in line or 'core dumped' in line:
-      #   is_oom = True  # avoid OOM in the middle of running
-      #   break
+  with open(filename) as fin:
+    for line in fin:
+      if 'OOM' in line or 'Segmentation' in line or 'Aborted' in line or 'core dumped' in line:
+        is_oom = True  # avoid OOM in the middle of running
+        break
       if keywd in line:
         # perf.append(float(line.split(split_wd)[-1].strip()))
-        # print('keywd: {}'.format(keywd))
-        # print(line)
-        # break
-        perf.append(func(line))
+        perf = func(line, keywd)
+        if perf is not None:
+          perfs.append(func(line, keywd))
 
   if is_oom:
     return 'OOM'
-  elif len(perf) == 0:
+  elif len(perfs) == 0:
     return None
   else:
+    # def log_perfs(perfs):
+    #   logging.debug('Perfs length: {}'.format(len(perfs)))
+    #   for p in perfs:
+    #     logging.debug(p)
     if need_avg:
-      assert len(perf) > 2
-      return np.average(perf[_perf_offset:])
-    else:
-      return perf[-1]
+      assert len(perfs) > 2
+      if filter_frac > 0:
+        logging.debug('Enable perf filtering')
+        avg = np.average(perfs[pre_offset : (-1 - suf_offset)])
+        filter_perfs = []
+        for i in range(pre_offset, len(perfs) - suf_offset):
+          if abs(perfs[i] - avg) / avg > filter_frac:
+            logging.debug('ignore [{}th] pref: {}'.format(i, perfs[i]))
+            continue
+          filter_perfs.append(perfs[i])
+        # log_perfs(filter_perfs)
+        # del log_perfs
+        return np.average(filter_perfs)
 
-def _GetPerf(filelists, keywd=None, func=None, need_avg=False):
+      return np.average(perfs[pre_offset : (-1 - suf_offset)])
+    else:
+      return perfs[-1]
+
+def _GetPerf(filelists, keywd=None, func=None, need_avg=False, pre_offset=0, suf_offset=0, filter_frac=0.0):
   perfs = []
   for filename in filelists:
-    perf = _GetPerfOnce(filename, keywd=keywd, func=func, need_avg=need_avg)
+    perf = _GetPerfOnce(filename, keywd=keywd, func=func, need_avg=need_avg, pre_offset=pre_offset, suf_offset=suf_offset, filter_frac=filter_frac)
     perfs.append(perf)
 
   res = None
@@ -492,56 +843,57 @@ def _GetPerf(filelists, keywd=None, func=None, need_avg=False):
 
 
 def GetPerfCNN(filelists):
-  def _func(line):
+  def _func(line, keywd):
     return float(line.split(':')[-1].strip())
 
   keywd = 'total images'
   perf = _GetPerf(filelists, keywd=keywd, func=_func, need_avg=False)
 
-  # for filename in filelists:
-  #   perf = _GetPerfOnce(filename, keywd='total images', func=_func, need_avg=False)
-  #   # perf = _GetPerfOnce(filename, _func, need_avg=False)
-  #   if perf != None:
-  #     del _func
-  #     return perf
-
   del _func
   return perf
 
 # For Bert, DeepSpeech2, GNMT, need average
-def GetPerfBert(filelists):
+def GetPerfTFBert(filelists):
   # perf: xx global_step/sec
-  def _func(line):
+  def _func(line, keywd):
     return float(line.split(':')[-1].strip())
 
-  keywd = "INFO:tensorflow:global_step/sec"
+  keywd = 'INFO:tensorflow:global_step/sec'
   perf = _GetPerf(filelists, keywd=keywd, func=_func, need_avg=True)
-
-  # for filename in filelists:
-  #   perf = _GetPerfOnce(filename, keywd='INFO:tensorflow:global_step/sec', func=_func, need_avg=True)
-  #   # perf = _GetPerfOnce(filename, _func, need_avg=True)
-  #   if perf != None:
-  #     del _func
-  #     return perf
 
   del _func
   return perf
 
+# For Pytorch & DeepSpeed Bert
+def GetPerfPTBert(filelists):
+  # perf: xx it/s
+  def _func(line, keywd):
+    keywd_index = line.find(keywd)
+    i = keywd_index - 1
+    while i > 0 and (line[i].isdigit() or line[i] == '.'):
+      i -= 1
+    if i == (keywd_index - 1):
+      return None
+    try:
+      perf = float(line[i:keywd_index])
+    except ValueError:
+      logging.error("Can not get perf: {}".format(line[i:keywd_index]))
+      return None
+    return perf
+
+  keywd = 'it/s'
+  perf = _GetPerf(filelists, keywd=keywd, func=_func, need_avg=True, pre_offset=2, suf_offset=2, filter_frac=0.1)
+
+  del _func
+  return perf
 
 def GetPerfMobile(filelists):
   # perf: xx sec/step
-  def _func(line):
+  def _func(line, keywd):
     return float(line.split('(')[-1].split()[0].strip())
 
   keywd = 'INFO:tensorflow:global step'
   perf = _GetPerf(filelists, keywd=keywd, func=_func, need_avg=True)
-
-  # for filename in filelists:
-  #   perf = _GetPerfOnce(filename, keywd='INFO:tensorflow:global step', func=_func, need_avg=True)
-  #   # perf = _GetPerfOnce(filename, _func, need_avg=True)
-  #   if perf != None:
-  #     del _func
-  #     return perf
 
   del _func
   return perf
@@ -549,7 +901,7 @@ def GetPerfMobile(filelists):
 
 def GetPerfTacotron(filelists):
   # perf : xx sec/step already averaged
-  def _func(line):
+  def _func(line, keywd):
     return float(line.split(',')[0].split('[')[-1].split()[0])
 
   keywd = 'sec/step'
@@ -562,8 +914,10 @@ def GetPerfTacotron(filelists):
 def GetPerf(cfg, filelists):
   if cfg.iscnn():
     return GetPerfCNN(filelists)
-  elif cfg.isbert():
-    return GetPerfBert(filelists)
+  elif cfg.is_tfbert():
+    return GetPerfTFBert(filelists)
+  elif cfg.is_ptbert():
+    return GetPerfPTBert(filelists)
   elif cfg.ismobilenet():
     return GetPerfMobile(filelists)
   elif cfg.istacotron():
@@ -633,7 +987,8 @@ def run(cfgs):
 
     with open(perf_log, 'a') as fout:
       for cfg in cfgs:
-        fout.write('{}\t'.format(cfg))
+        fout.write('{}\t'.format(cfg.job_name()))
+        # fout.write('{}\t'.format(cfg))
       fout.write('\n')
       for perf in perfs:
         fout.write('\t{}\n'.format(perf))
@@ -642,7 +997,7 @@ def run(cfgs):
 
     return perfs
 
-def run_shell(cfgs):
+def run_shell(cfgs, save_log=False, grpc_server=False):
   job_num = len(cfgs)
   # gpu_mem_frac = float(1)/job_num
   for i, cfg in enumerate(cfgs):
@@ -652,16 +1007,22 @@ def run_shell(cfgs):
   tmpferrs = []
   stdouts = []
   stderrs = []
-  for i in range(job_num):    
-    tmpfouts.append('{}/{}_{}'.format(perf_dir, 'tmpout', i+1))
-    tmpferrs.append('{}/{}_{}'.format(perf_dir, 'tmperr', i+1))
+  for i in range(job_num):
+    out_filename = '{}/tmpout_{}'.format(perf_log, i+1)
+    err_filename = '{}tmperr_{}'.format(perf_log, i+1)
+    if save_log:
+      out_filename = '{}/{}_out{}.log'.format(log_dir, cfgs[i].job_name(), i+1)
+      err_filename = '{}/{}_err{}.log'.format(log_dir, cfgs[i].job_name(), i+1)
+    tmpfouts.append(out_filename)
+    tmpferrs.append(err_filename)
     tmpstdout = open(tmpfouts[i], 'w')
     tmpstderr = open(tmpferrs[i], 'w')
     stdouts.append(tmpstdout)
     stderrs.append(tmpstderr)
 
   procs = []
-  os.environ['CUDA_VISIBLE_DEVICES'] = ''
+  if grpc_server:
+    os.environ['CUDA_VISIBLE_DEVICES'] = ''
   try:
     for i, cfg in enumerate(cfgs):
       cd_cmd = ' '.join(cfg.cd_cmd)
@@ -693,7 +1054,8 @@ def run_shell(cfgs):
     if not config._LOGNODE_TIME:
       with open(perf_log, 'a') as fout:
         for cfg in cfgs:
-          fout.write('{}\t'.format(cfg))
+          fout.write('{}\t'.format(cfg.job_name()))
+          # fout.write('{}\t'.format(cfg))
         fout.write('\n')
         for perf in perfs:
           fout.write('\t{}\n'.format(perf))
@@ -751,9 +1113,18 @@ def check_perfs(perfs):
 
 
 if __name__ == '__main__':
-  model = sys.argv[1]
-  filename = sys.argv[2]
+  # model = sys.argv[1]
+  # filename = sys.argv[2]
 
-  config = RunConfig(model=model)
+  parser = argparse.ArgumentParser()
+
+  parser.add_argument('--model', '-m', required=True, type=str,
+                      help='Model name')
+  parser.add_argument('--batch_size', '-b', default=None, type=int,
+                      help='Batch size')
+
+  args = parser.parse_args()
+
+  config = RunConfig(model=args.model, batch_size=args.batch_size)
   perf = GetPerf(config, [filename,])
   print("Model[{}]  Bs[{}]  Perf[examples/sec]: {}".format(model, config.batch_size, perf*config.batch_size))
